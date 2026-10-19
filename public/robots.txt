@@ -3,4 +3,4 @@ Allow: /
 
 Disallow: /*?*
 
-Sitemap: https://us-retirement-limits.example/sitemap-index.xml
+Sitemap: https://retirementlimits.com/sitemap-index.xml

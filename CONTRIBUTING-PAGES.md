@@ -1,4 +1,4 @@
-# Écrire ou étoffer une page de Limit Ledger (us-retirement-limits)
+# Écrire ou étoffer une page de Retirement Limits (us-retirement-limits)
 
 Cette notice s'adresse aux agents qui écrivent les pages. Lis-la en entier avant d'écrire, avec `~/Documents/GitHub/RECETTE-SITE.md` (§0, §5, §6, §6.5, §7, §9.3, §11, §17.4, §21, §26).
 

@@ -7,12 +7,12 @@ import { src } from '../../lib/helpers';
 import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
 const lang = 'en';
 const path = route('about', lang);
-const title = 'Limit Ledger 2026: who publishes these IRS limit calculators';
-const description = 'Limit Ledger is published by Radif Partners: 2026 IRS contribution limits and RMD tables applied to your age and income, nothing to sell, no e-mail asked.';
+const title = 'Retirement Limits 2026: who publishes these IRS calculators';
+const description = 'Retirement Limits is published by Radif Partners: 2026 IRS contribution limits and RMD tables applied to your age and income, nothing to sell, no e-mail asked.';
 ---
 <PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path }])]} breadcrumbs={[{ label: 'About' }]}>
   <article class="prose prose-slate max-w-none prose-headings:font-serif">
-    <h1>About Limit Ledger</h1>
+    <h1>About Retirement Limits</h1>
     <p>{AUTHOR_DESC.en}</p>
     <h2>The gap this site fills</h2>
     <p>Every November the IRS publishes one number per account, and within a day hundreds of pages repeat it. The number is right for a minority of readers. A 61 year old has a larger catch-up than a 65 year old; a single filer with a modified AGI of $160,000 can put part of the IRA limit in a Roth, not all of it and not nothing; a manager who earned more than $150,000 last year has to make the catch-up as Roth; a widow inheriting an IRA does not follow the same RMD rule as a nephew. Search results for these questions are held by plan providers and brokers whose pages print the headline and send you to a representative. Some independent pages still show a previous year's limit, or a 2017 RMD table with a start at 70½ and a 50 % penalty.</p>

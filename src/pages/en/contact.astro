@@ -6,9 +6,9 @@ import { route } from '../../i18n/routes';
 import { contactPageSchema } from '../../lib/seo';
 const lang = 'en';
 const path = route('contact', lang);
-const description = 'Write to the publisher of Limit Ledger about a limit, a rule or a source on the contribution and RMD calculators. E-mail only, no advice on your own case, nothing sold.';
+const description = 'Write to the publisher of Retirement Limits about a limit, a rule or a source on the contribution and RMD calculators. E-mail only, no advice on your own case, nothing sold.';
 ---
-<PageLayout title="Contact Limit Ledger: corrections to a limit, a rule or a source" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path, lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
+<PageLayout title="Contact Retirement Limits: corrections to a limit, a rule or a source" description={description} lang={lang} noindex={true} jsonLd={[contactPageSchema({ name: 'Contact', description, path, lang })]} breadcrumbs={[{ label: 'Contact' }]} showAuthor={false}>
   <div class="prose prose-slate max-w-none prose-headings:font-serif">
     <h1>Contact</h1>
     <p>By e-mail: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. No form and no newsletter: we sell no account and need no address.</p>

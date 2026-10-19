@@ -1,6 +1,6 @@
 /** Configuration centrale du site (générée par new-site.py). */
-export const SITE_URL = "https://us-retirement-limits.example";
-export const SITE_NAMES: Record<string, string> = {"en": "Limit Ledger"};
+export const SITE_URL = "https://retirementlimits.com";
+export const SITE_NAMES: Record<string, string> = {"en": "Retirement Limits"};
 export const LANG_TAGS: Record<string, string> = {"en": "en-US"};
 export const OG_LOCALES: Record<string, string> = {"en": "en_US"};
 export const LOCALE_TAG = 'en-US';
@@ -16,7 +16,7 @@ export const AUTHOR_DESC: Record<string, string> = {"en": "Radif Partners turns 
  *  themes reellement traites par le site, pas une liste de mots-cles : un sujet
  *  declare ici sans page qui le couvre est une declaration fausse. */
 export const KNOWS_ABOUT: Record<string, string[]> = {"en": ["401(k), 403(b) and 457(b) elective deferral limits", "Age 50 and age 60 to 63 catch-up contributions", "Mandatory Roth catch-up contributions under SECURE 2.0", "Roth IRA income phase-out and reduced contribution", "Traditional IRA deduction phase-out", "HSA and FSA contribution limits", "Required minimum distributions and the IRS life expectancy tables", "Inherited IRA 10-year rule"]};
-export const CONTACT_EMAIL = "contact@us-retirement-limits.example";
+export const CONTACT_EMAIL = "contact@retirementlimits.com";
 export const THEME_COLOR = '#8A2433';
 export const LOGO_SYMBOL = '401';
 export const BING_VERIFY_CODE = '';
