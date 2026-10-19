@@ -1,0 +1,206 @@
+ing a particular year aren't eligible for rollover treatment.
+IRA Owners
+Required beginning date. If you are the owner of a tra-
+ditional IRA, you must generally start receiving distribu-
+tions from your IRA by April 1 of the year following the year 
+in which you reach your applicable required beginning 
+date.
+Your required beginning date. See the following to de-
+termine your applicable required beginning date.
+Age 73 for tax years 2023 and later.  If you reach 
+age 72 after December 31, 2022, you must begin receiv-
+ing required minimum distributions by April 1 of the year 
+following the year you reach the age 73.
+Age 72 for tax years 2020, 2021, or 2022.  If you 
+reached age 70 1/2 after December 31, 2019, but had not 
+reached age 72 before January 1, 2023, you had to begin 
+receiving required minimum distributions by April 1 of the 
+year following the year you reach age 72.
+Age 70 1/2 for tax years 2019 or earlier.  If you 
+reached age 70 1/2 before January 1, 2020, you were re-
+quired to begin receiving required minimum distributions 
+6 Chapter 1 T raditional IRAs Publication 590-B (2025)
+Page 7 of 71  Fileid: … tion-590-b/2025/a/xml/cycle08/source 12:50 - 21-Jan-2026
+The type and rule above prints on all proofs including departmental reproduction proofs. MUST be removed before printing.
+by April 1 of the year following the year you reach age 
+701/2.
+Distributions by the required beginning date.  Y ou 
+must receive at least a minimum amount for each year 
+starting with the year before the year that contains your re-
+quired beginning date.
+If an IRA owner dies after reaching age 73, but before 
+the IRA owner's required beginning date, no minimum dis-
+tribution is required for that year because death occurred 
+before the required beginning date.
+Caution: Even if you begin receiving distributions be-
+fore you reach age 73, you must begin calculating and re-
+ceiving RMDs by your required beginning date.
+More than minimum received. If, in any year, you re-
+ceive more than the required minimum distribution for that 
+year, you won't receive credit for the additional amount 
+when determining the required minimum distributions for 
+future years. This means that if you receive more than 
+your required minimum distribution in 1 year, you can't 
+treat the excess (the amount that is more than the required 
+minimum distribution) as part of your required minimum 
+distribution for any later year. However, any amount dis-
+tributed in the year you become age 73 will be credited to-
+ward the amount that must be distributed by April 1 of the 
+following year.
+Distributions after the required beginning date.  The 
+required minimum distribution for any year after the year 
+you reach age 73 must be made by December 31 of that 
+later year.
+Distributions from individual retirement accounts.  If 
+you are the owner of a traditional IRA that is an individual 
+retirement account, you or your trustee must figure the re-
+quired minimum distribution for each year. See Figuring 
+the Owner's Required Minimum Distribution, later.
+Distributions from individual retirement annuities.  If 
+your traditional IRA is an individual retirement annuity, 
+special rules apply to figuring the required minimum distri-
+bution. For more information on rules for annuities, see 
+T reasury Regulations section 1.401(a)(9)-6. These regula-
+tions can be read in many libraries, and IRS offices, and 
+online at IRS.gov.
+Change in marital status.  For purposes of figuring your 
+required minimum distribution, your marital status is deter-
+mined as of January 1 of each year. If your spouse is a 
+beneficiary of your IRA on January 1, they will remain a 
+beneficiary for the entire year even if you get divorced or 
+your spouse dies during the year.
+For purposes of determining your applicable denomina-
+tor (the number used to figure your required minimum dis-
+tribution amount), a change in beneficiary is effective in 
+the year following the year of death or divorce.
+Change of beneficiary. If your spouse is the sole ben-
+eficiary of your IRA, and they die before you, your spouse 
+won't fail to be your sole beneficiary for the year they died 
+solely because someone other than your spouse is named 
+a beneficiary for the rest of that year. However, if you get 
+divorced during the year and change the beneficiary des-
+ignation on the IRA during that same year, your former 
+spouse won't be treated as the sole beneficiary for that 
+year.
+Figuring the Owner's Required Minimum 
+Distribution
+Figure your required minimum distribution for each year by 
+dividing the IRA account balance (defined next) as of the 
+close of business on December 31 of the preceding year 
+by the applicable denominator or life expectancy. T ables 
+showing applicable denominators and life expectancies 
+are found in Appendix B and are discussed later.
+See Which T able Do Y ou Use T o Determine Y our Re-
+quired Minimum Distribution later for more information
+IRA account balance.  The IRA account balance is the 
+amount in the IRA at the end of the year preceding the 
+year for which the required minimum distribution is being 
+figured.
+Contributions. Contributions increase the account 
+balance in the year they are made. If a contribution for last 
+year isn't made until after December 31 of last year, it in-
+creases the account balance for this year, but not for last 
+year. Disregard contributions made after December 31 of 
+last year in determining your required minimum distribu-
+tion for this year.
+Outstanding rollovers.  The IRA account balance is 
+adjusted by outstanding rollovers that aren't in any ac-
+count at the end of the preceding year.
+For a rollover from a qualified plan or another IRA that 
+wasn't in any account at the end of the preceding year, in-
+crease the account balance of the receiving IRA by the 
+rollover amount valued as of the date of receipt.
+No recharacterizations of conversions made in 
+2018 or later. A conversion of a traditional IRA to a Roth 
+IRA, and a rollover from any other eligible retirement plan 
+to a Roth IRA, made in tax years beginning after Decem-
+ber 31, 2017, cannot be recharacterized as having been 
+made to a traditional IRA.
+Distributions. Distributions reduce the account bal-
+ance in the year they are made. A distribution for last year 
+made after December 31 of last year reduces the account 
+balance for this year, but not for last year. Disregard distri-
+butions made after December 31 of last year in determin-
+ing your required minimum distribution for this year.
+Applicable denominator. This is the number by which 
+you divide your account balance as of December 31 of 
+last year in order to figure your required minimum distribu-
+tion.
+Life expectancy. Y ou are required to make distributions 
+over your lifetime or a period that represents the combined 
+life expectancies of you and your designated beneficiary, if 
+applicable. Y ou are able to meet this requirement when 
+you use your applicable denominator  for each year you 
+Publication 590-B (2025) Chapter 1 T raditional IRAs 7
+Page 8 of 71  Fileid: … tion-590-b/2025/a/xml/cycle08/source 12:50 - 21-Jan-2026
+The type and rule above prints on all proofs including departmental reproduction proofs. MUST be removed before printing.
+make your required minimum distribution. Y ou will be able 
+to locate your applicable denominator in one of the three 
+tables located in Appendix B. The life expectancy tables 
+are as follows.
+• T able I (Single Life Expectancy).
+• T able II (Joint and Last Survivor Life Expectancy).
+• T able III (Uniform Lifetime).
+If you must use T able I or T able III, your applicable de-
+nominator for 2026 is listed in the table next to your age as 
+of your birthday in 2026. If you use T able II, your applica-
+ble denominator for 2026 is listed where the row or col-
+umn containing your age as of your birthday in 2026 inter-
+sects with the row or column containing your spouse's age 
+as of their birthday in 2026.
+Distributions during your lifetime.  Required minimum 
+distributions during your lifetime are figured using the cur-
+rent year’s applicable denominator that is generally deter-
+mined using T able III in Appendix B. However, if the sole 
+beneficiary of your IRA is your spouse who is more than 
+10 years younger than you, see Sole beneficiary spouse 
+who is more than 10 years younger below.
+T o figure the required minimum distribution for 2026, di-
+vide your account balance at the end of 2025 by the appli-
+cable denominator from the table. This is the applicable 
+denominator listed next to your age (as of your birthday in 
+2026) in T able III in Appendix B, unless the sole benefi-
+ciary of your IRA is your spouse who is more than 10 
+years younger than you.
+Example. Y ou own a traditional IRA. Y our account bal-
+ance at the end of 2025 was $100,000. Y ou are married 
+and your spouse, who is the sole beneficiary of your IRA, 
+is 6 years younger than you. Y ou turn 75 years old in 2026. 
+Y ou use T able III. Y our applicable denominator is 24. 6. 
+Y our required minimum distribution for 2026 would be 
+$4,065 ($100,000 ÷ 24.6).
+Sole beneficiary spouse who is more than 10 
+years younger. If the sole beneficiary of your IRA is your 
+spouse and your spouse is more than 10 years younger 
+than you, use the applicable denominator from T able II in 
+Appendix B.
+The applicable denominator to use is located where the 
+row or column containing your age as of your birthday in 
+2026 intersects with the row or column containing your 
+spouse's age as of their birthday in 2026.
+Y ou figure your required minimum distribution for 2026 
+by dividing your account balance at the end of 2025 by the 
+applicable denominator from T able II in Appendix B.
+Example. Y ou own a traditional IRA. Y our account bal-
+ance at the end of 2025 was $100,000. Y ou are married 
+and your spouse, who is the sole beneficiary of your IRA, 
+is 11 years younger than you. Y ou turn 75 in 2026 and 
+your spouse turns 64. Y ou use T able II. Y our applicable de-
+nominator is 25.3. Y our required minimum distribution for 
+2026 would be $3,953 ($100,000 ÷ 25.3).
+Special rules where portion of account balance is 
+used to purchase an annuity.  If you purchase an 
+annuity contract with a portion of your IRA account bal-
+ance, then special rules may apply in determining your 
+RMD from the remaining account balance. Specifically, 
+you may elect to satisfy the RMD requirement for the year 
+by combining the value of the annuity contract with the re-
+maining account balance and reducing the RMD by the 
+amount of the annuity payments.
+Example. Y ou own a traditional IRA. In 2025, you pur-
+chase an annuity contract with a portion of your account 
+balance. As of December 31, 2025, your remaining ac-
+count balance is $100,000, and the value of the annuity 
+contract is $200,000. Y our annuity payments in 2025 total 
+$8,000.
+T o use the rule described in the paragraph above, your 

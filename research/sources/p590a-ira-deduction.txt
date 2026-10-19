@@ -1,0 +1,51 @@
+THEN enter on 
+line 1 below...
+are covered by an 
+employer plan 
+single or head of 
+household $79,000 $89,000
+married filing jointly or 
+qualifying surviving 
+spouse $126,000 $146,000
+married filing separately $0 $10,000
+aren’t covered by an 
+employer plan, but your 
+spouse is covered
+married filing jointly $236,000 $246,000
+married filing separately $0 $10,000
+1. Enter applicable amount from table above .............................................. 1.  
+2. Enter your modified AGI (that of both spouses, if married filing jointly) ...................... 2.  
+Note: If line 2 is equal to or more than the amount on line 1, stop here.
+Y our IRA contributions aren’t deductible. See Nondeductible Contributions, earlier.
+3. Subtract line 2 from line 1. If line 3 is $10,000 or more ($20,000 or more if married filing 
+jointly or qualifying surviving spouse and you are covered by an employer plan), stop 
+here. Y ou can take a full IRA deduction for contributions of up to $7,000 ($8,000 if you are age 50 
+or older) or 100% of your (and if married filing jointly, your spouse's) compensation, whichever is 
+less ............................................................................. 3.  
+4. Multiply line 3 by the percentage below that applies to you. If the result isn’t a multiple of 
+$10, round it to the next highest multiple of $10. (For example, $611.40 is rounded to 
+$620.) However, if the result is less than $200, enter $200.
+• Married filing jointly or qualifying surviving spouse and you are covered by an 
+employer plan, multiply line 3 by 35% (0.35) (by 40% (0.40) if you are age 50 or 
+older).
+• All others, multiply line 3 by 70% (0.70) (by 80% (0.80) if you are age 50 or older).
+...... 4.  
+5. Enter your compensation minus any deductions on Schedule 1 (Form 1040), line 15 (deductible 
+part of self-employment tax), and Schedule 1 (Form 1040), line 16 (self-employed SEP , SIMPLE, 
+and qualified plans). If you are filing a joint return and your compensation is less than your 
+spouse's, include your spouse's compensation reduced by their traditional IRA and Roth IRA 
+contributions for this year. If you file Form 1040, 1040-SR, or 1040-NR, don’t reduce your 
+compensation by any losses from self-employment ...................................... 5.  
+6. Enter contributions made, or to be made, to your IRA for 2025, but don’t enter more than $7,000 
+($8,000 if you are age 50 or older). If contributions are more than $7,000 ($8,000 if you are age 50 
+or older), see Excess Contributions, later .............................................. 6.  
+7. IRA deduction. Compare lines 4, 5, and 6. Enter the smallest amount (or a smaller amount if you 
+choose) here and on your Schedule 1 (Form 1040), line 20. If line 6 is more than line 7 and you 
+want to make a nondeductible contribution, go to line 8 ................................... 7.  
+8. Nondeductible contribution. Subtract line 7 from line 5 or line 6, whichever is smaller.
+Enter the result here and on line 1 of your Form 8606 .................................... 8.  
+18 Chapter 1 T raditional IRAs Publication 590-A (2025)
+Page 19 of 62  Fileid: … tion-590-a/2025/a/xml/cycle08/source 10:50 - 15-Jan-2026
+The type and rule above prints on all proofs including departmental reproduction proofs. MUST be removed before printing.
+Worksheet 1-2. Figuring Your Reduced IRA Deduction for 2025—Example 1 Illustrated
+(Use only if you or your spouse is covered by an employer plan and your modified AGI falls between the two amounts 

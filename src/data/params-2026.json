@@ -1,0 +1,398 @@
+{
+  "_lisezmoi": "Every limit of the site lives here, never typed into a page (RECETTE §4). Each value was read on the source named in `sources` on retrieved_at. The 2027 block holds what the IRS has published so far; a null means not announced yet: fill it the day the IRS publishes its notice (see CONTRIBUTING-PAGES.md, « Jour de l'annonce 2027 »).",
+  "year": 2026,
+  "retrieved_at": "2026-10-19",
+  "valid_from": "2026-01-01",
+  "valid_to": "2026-12-31",
+  "limits": {
+    "2026": {
+      "deferral": 24500,
+      "catchUp50": 8000,
+      "catchUp6063": 11250,
+      "rothCatchUpWageThreshold": 150000,
+      "rothCatchUpWageYear": 2025,
+      "total415c": 72000,
+      "compensationCap": 360000,
+      "hce": 160000,
+      "keyEmployee": 235000,
+      "gov457": 24500,
+      "simple": 17000,
+      "simpleApplicable": 18100,
+      "simpleCatchUp": 4000,
+      "simpleCatchUpApplicable": 3850,
+      "simpleCatchUp6063": 5250,
+      "sepMinComp": 800,
+      "ira": 7500,
+      "iraCatchUp": 1100,
+      "rothPhase": {
+        "single": [
+          153000,
+          168000
+        ],
+        "joint": [
+          242000,
+          252000
+        ],
+        "mfs": [
+          0,
+          10000
+        ]
+      },
+      "deductPhase": {
+        "singleCovered": [
+          81000,
+          91000
+        ],
+        "jointCovered": [
+          129000,
+          149000
+        ],
+        "spouseCovered": [
+          242000,
+          252000
+        ],
+        "mfsCovered": [
+          0,
+          10000
+        ]
+      },
+      "saversCredit": {
+        "joint": 80500,
+        "head": 60375,
+        "single": 40250
+      },
+      "qcd": 111000,
+      "qcdSplit": 55000,
+      "hsaSelf": 4400,
+      "hsaFamily": 8750,
+      "hsaCatchUp": 1000,
+      "hdhpMinDeductible": {
+        "self": 1700,
+        "family": 3400
+      },
+      "hdhpMaxOutOfPocket": {
+        "self": 8500,
+        "family": 17000
+      },
+      "healthFsa": 3400,
+      "healthFsaCarryover": 680,
+      "dependentCareFsa": 7500,
+      "dependentCareFsaMfs": 3750,
+      "wageBase": 184500
+    },
+    "2027": {
+      "announced": false,
+      "expected": "mid-November 2026",
+      "deferral": null,
+      "catchUp50": null,
+      "catchUp6063": null,
+      "rothCatchUpWageThreshold": null,
+      "rothCatchUpWageYear": 2026,
+      "total415c": null,
+      "compensationCap": null,
+      "gov457": null,
+      "simple": null,
+      "ira": null,
+      "iraCatchUp": null,
+      "rothPhase": null,
+      "deductPhase": null,
+      "healthFsa": null,
+      "hsaSelf": 4500,
+      "hsaFamily": 9000,
+      "hsaCatchUp": 1000,
+      "hdhpMinDeductible": {
+        "self": 1750,
+        "family": 3500
+      },
+      "hdhpMaxOutOfPocket": {
+        "self": 8700,
+        "family": 17400
+      },
+      "dependentCareFsa": 7500,
+      "dependentCareFsaMfs": 3750
+    }
+  },
+  "history": {
+    "_source": "IRS, COLA increases for dollar limitations on benefits and contributions, read 2026-10-19 (columns 2023 to 2026).",
+    "years": [
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "deferral": [
+      22500,
+      23000,
+      23500,
+      24500
+    ],
+    "catchUp50": [
+      7500,
+      7500,
+      7500,
+      8000
+    ],
+    "catchUp6063": [
+      0,
+      0,
+      11250,
+      11250
+    ],
+    "total415c": [
+      66000,
+      69000,
+      70000,
+      72000
+    ],
+    "compensationCap": [
+      330000,
+      345000,
+      350000,
+      360000
+    ],
+    "ira": [
+      6500,
+      7000,
+      7000,
+      7500
+    ],
+    "iraCatchUp": [
+      1000,
+      1000,
+      1000,
+      1100
+    ],
+    "simple": [
+      15500,
+      16000,
+      16500,
+      17000
+    ],
+    "deductStartJoint": [
+      116000,
+      123000,
+      126000,
+      129000
+    ],
+    "deductStartSingle": [
+      73000,
+      77000,
+      79000,
+      81000
+    ],
+    "hce": [
+      150000,
+      155000,
+      160000,
+      160000
+    ],
+    "wageBase": [
+      160200,
+      168600,
+      176100,
+      184500
+    ]
+  },
+  "previous": {
+    "_source": "Notice 2025-67 gives each 2026 amount with its 2025 value; Rev. Proc. 2025-19 gives the 2026 HSA amounts.",
+    "deferral": 23500,
+    "qcd": 108000,
+    "qcdSplit": 54000,
+    "hsaSelf": 4300,
+    "hsaFamily": 8550,
+    "healthFsa": 3300,
+    "dependentCareFsa": 5000,
+    "_source_health": "2025 HSA: Rev. Proc. 2024-25; 2025 health FSA: Rev. Proc. 2024-40; dependent care before 2026: $5,000 (Publication 15-B 2025); QCD 2025 amounts: Notice 2025-67.",
+    "catchUp50": 7500,
+    "catchUp6063": 11250,
+    "total415c": 70000,
+    "ira": 7000,
+    "iraCatchUp": 1000,
+    "rothPhase": {
+      "single": [
+        150000,
+        165000
+      ],
+      "joint": [
+        236000,
+        246000
+      ]
+    },
+    "rothCatchUpWageThreshold": 145000,
+    "simple": 16500,
+    "simpleCatchUp": 3500
+  },
+  "ages": {
+    "catchUp": 50,
+    "superCatchUp": [
+      60,
+      63
+    ],
+    "hsaCatchUp": 55,
+    "medicare": 65
+  },
+  "rmd": {
+    "applicableAge": [
+      {
+        "bornFrom": null,
+        "bornTo": "1949-06-30",
+        "age": 70.5,
+        "note": "reached 70½ before 2020"
+      },
+      {
+        "bornFrom": "1949-07-01",
+        "bornTo": "1950-12-31",
+        "age": 72,
+        "note": "SECURE Act"
+      },
+      {
+        "bornFrom": "1951-01-01",
+        "bornTo": "1958-12-31",
+        "age": 73,
+        "note": "final regulations, § 1.401(a)(9)-2(b)(2)(iv)"
+      },
+      {
+        "bornFrom": "1959-01-01",
+        "bornTo": "1959-12-31",
+        "age": 73,
+        "note": "proposed regulations of July 19, 2024: paragraph (b)(2)(v) is still reserved in the final text"
+      },
+      {
+        "bornFrom": "1960-01-01",
+        "bornTo": null,
+        "age": 75,
+        "note": "final regulations, § 1.401(a)(9)-2(b)(2)(vi)"
+      }
+    ],
+    "rbdMonthDay": "04-01",
+    "exciseTax": 0.25,
+    "exciseTaxCorrected": 0.1,
+    "jointYoungerBy": 10,
+    "tenYearRule": 10,
+    "annualRmdInTenYearFrom": 2025,
+    "edbYoungerBy": 10
+  },
+  "se": {
+    "netEarningsFactor": 0.9235,
+    "ssRate": 0.124,
+    "medicareRate": 0.029,
+    "sepRate": 0.25,
+    "selfEmployedRate": 0.2
+  },
+  "sources": {
+    "notice_2025_67": {
+      "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
+      "label": {
+        "en": "IRS Notice 2025-67, 2026 amounts relating to retirement plans and IRAs (Nov. 13, 2025)"
+      }
+    },
+    "ir_2025_111": {
+      "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-24500-for-2026-ira-limit-increases-to-7500",
+      "label": {
+        "en": "IRS news release IR-2025-111: 401(k) limit increases to $24,500 for 2026"
+      }
+    },
+    "irs_cola": {
+      "url": "https://www.irs.gov/retirement-plans/cola-increases-for-dollar-limitations-on-benefits-and-contributions",
+      "label": {
+        "en": "IRS, COLA increases for dollar limitations on benefits and contributions"
+      }
+    },
+    "ir_2025_91": {
+      "url": "https://www.irs.gov/newsroom/treasury-irs-issue-final-regulations-on-new-roth-catch-up-rule-other-secure-2point0-act-provisions",
+      "label": {
+        "en": "IRS news release IR-2025-91: final regulations on the Roth catch-up rule (Sept. 15, 2025)"
+      }
+    },
+    "rp_2025_19": {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-19.pdf",
+      "label": {
+        "en": "IRS Rev. Proc. 2025-19, 2026 HSA and HDHP amounts"
+      }
+    },
+    "rp_2026_24": {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-26-24.pdf",
+      "label": {
+        "en": "IRS Rev. Proc. 2026-24, 2027 HSA and HDHP amounts"
+      }
+    },
+    "rp_2025_32": {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-25-32.pdf",
+      "label": {
+        "en": "IRS Rev. Proc. 2025-32, 2026 inflation adjustments (section 3.15, health FSA)"
+      }
+    },
+    "pub15b": {
+      "url": "https://www.irs.gov/pub/irs-pdf/p15b.pdf",
+      "label": {
+        "en": "IRS Publication 15-B (2026), Employer's Tax Guide to Fringe Benefits"
+      }
+    },
+    "pub969": {
+      "url": "https://www.irs.gov/pub/irs-pdf/p969.pdf",
+      "label": {
+        "en": "IRS Publication 969, Health Savings Accounts and Other Tax-Favored Health Plans"
+      }
+    },
+    "pub503": {
+      "url": "https://www.irs.gov/pub/irs-pdf/p503.pdf",
+      "label": {
+        "en": "IRS Publication 503, Child and Dependent Care Expenses"
+      }
+    },
+    "pub590a": {
+      "url": "https://www.irs.gov/pub/irs-pdf/p590a.pdf",
+      "label": {
+        "en": "IRS Publication 590-A (2025), Contributions to IRAs"
+      }
+    },
+    "pub590b": {
+      "url": "https://www.irs.gov/pub/irs-pdf/p590b.pdf",
+      "label": {
+        "en": "IRS Publication 590-B (2025), Distributions from IRAs"
+      }
+    },
+    "pub560": {
+      "url": "https://www.irs.gov/pub/irs-pdf/p560.pdf",
+      "label": {
+        "en": "IRS Publication 560, Retirement Plans for Small Business (SEP, SIMPLE and Qualified Plans)"
+      }
+    },
+    "rmd_faq": {
+      "url": "https://www.irs.gov/retirement-plans/retirement-plan-and-ira-required-minimum-distributions-faqs",
+      "label": {
+        "en": "IRS, Retirement plan and IRA required minimum distributions FAQs"
+      }
+    },
+    "ecfr_rmd_age": {
+      "url": "https://www.ecfr.gov/current/title-26/section-1.401(a)(9)-2",
+      "label": {
+        "en": "26 CFR 1.401(a)(9)-2, required beginning date and applicable age"
+      }
+    },
+    "ecfr_tables": {
+      "url": "https://www.ecfr.gov/current/title-26/section-1.401(a)(9)-9",
+      "label": {
+        "en": "26 CFR 1.401(a)(9)-9, life expectancy tables"
+      }
+    },
+    "fr_2024_14543": {
+      "url": "https://www.govinfo.gov/content/pkg/FR-2024-07-19/pdf/2024-14543.pdf",
+      "label": {
+        "en": "Federal Register, July 19, 2024: proposed regulations on required minimum distributions (age for those born in 1959)"
+      }
+    },
+    "notice_2024_35": {
+      "url": "https://www.irs.gov/pub/irs-drop/n-24-35.pdf",
+      "label": {
+        "en": "IRS Notice 2024-35, relief for 10-year rule distributions through 2024"
+      }
+    },
+    "tc554": {
+      "url": "https://www.irs.gov/taxtopics/tc554",
+      "label": {
+        "en": "IRS Topic no. 554, Self-employment tax"
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+---
+/** Method: every rule, every formula, the tests, the limits. Figures from the kit. */
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { KIT as K } from '../../lib/kit';
+import { src, table } from '../../lib/helpers';
+import { breadcrumbSchema, webPageSchema } from '../../lib/seo';
+const lang = 'en';
+const path = route('method', lang);
+const P = K.P;
+const L = K.L;
+const title = 'Contribution Limit Method 2026: IRS Notices and Worksheets';
+const description = 'How the 2026 contribution limit and RMD calculators work: Notice 2025-67, the Publication 590-A worksheets, HSA monthly rule, eCFR life tables and tests.';
+const ex1 = K.rothReduced('single', 151000, 40, 100000);
+const u75 = K.ownerRmd(100000, 75);
+const j75 = K.ownerRmd(100000, 75, 64, true);
+const ages = P.rmd.applicableAge.map((r) => [r.bornFrom ? K.day(r.bornFrom) : 'before', r.bornTo ? K.day(r.bornTo) : 'and later', String(r.age)]);
+const tiers = [1961, 1962, 1963, 1966, 1975].map((b) => { const d = K.deferral('401k', b, 300000, 100000); return [String(b), String(d.age), K.usd(d.catchUp), K.usd(d.total)]; });
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[webPageSchema({ name: 'How we calculate', description, path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'How we calculate', path }])]} breadcrumbs={[{ label: 'How we calculate' }]}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>How the calculators work</h1>
+    <p>Every calculator on this site runs in your browser on one engine and one parameter file. The parameter file holds each limit with the IRS text it comes from and the date it was read ({K.day(P.retrieved_at)} for this edition). This page lists the rules, the formulas, the tests and what is deliberately left out.</p>
+    <h2>1. Workplace plan deferrals</h2>
+    <p>The elective deferral limit of a 401(k), 403(b) or governmental 457(b) plan is {K.usd(L.deferral)} for 2026 (<Fragment set:html={src('notice_2025_67', 'Notice 2025-67')} />), never more than your pay. The age test uses your age on December 31 of the year: from 50 the catch-up is {K.usd(L.catchUp50)}; in the years you turn 60, 61, 62 and 63 it is {K.usd(L.catchUp6063)} instead, as section 414(v)(2)(E) added by SECURE 2.0 allows. A SIMPLE plan has its own figures: {K.usd(L.simple)} and a {K.usd(L.simpleCatchUp)} catch-up, or {K.usd(L.simpleApplicable)} and {K.usd(L.simpleCatchUpApplicable)} for an employer that applies the higher SECURE 2.0 limits, and {K.usd(L.simpleCatchUp6063)} at 60 to 63.</p>
+    <Fragment set:html={table(['Born in', 'Age on Dec. 31, 2026', 'Catch-up', 'Total deferral'], tiers, 'Computed by the engine from Notice 2025-67, 401(k) plan, pay above the limit.', ['l', 'r', 'r', 'r'])} />
+    <p>Mandatory Roth catch-up: when your FICA wages for 2025 from the employer sponsoring the plan exceeded {K.usd(L.rothCatchUpWageThreshold)}, your 2026 catch-up must be designated Roth (section 414(v)(7) and the <Fragment set:html={src('ir_2025_91', 'final regulations')} />). The calculators ask for those wages, not your current pay. SIMPLE IRA plans are outside this rule.</p>
+    <p>Total additions: deferrals other than catch-up, employer contributions and after-tax money are capped at {K.usd(L.total415c)} or 100 % of compensation (section 415(c)). Compensation counted by the plan stops at {K.usd(L.compensationCap)}.</p>
+    <h2>2. Self-employed plans</h2>
+    <p>Net earnings from self-employment are {K.pct(P.se.netEarningsFactor, 2)} of net profit; self-employment tax is {K.pct(P.se.ssRate, 1)} up to the {K.usd(L.wageBase)} wage base plus {K.pct(P.se.medicareRate, 1)} on all of it, and half of it is deducted before the plan contribution. On the result, a SEP or the employer part of a solo 401(k) is limited to {K.pct(P.se.selfEmployedRate, 0)} of net earnings for the owner, the equivalent of {K.pct(P.se.sepRate, 0)} of an employee's pay, following the rate table of <Fragment set:html={src('pub560', 'Publication 560')} />. The additional 0.9 % Medicare tax is not counted.</p>
+    <h2>3. IRAs</h2>
+    <p>The IRA limit is {K.usd(L.ira)}, plus {K.usd(L.iraCatchUp)} from age 50, for traditional and Roth IRAs together and never more than taxable compensation. The reduced Roth IRA contribution follows Worksheet 2-2 of <Fragment set:html={src('pub590a', 'Publication 590-A')} />: the limit is multiplied by the share of the phase-out band your modified AGI has passed, that amount is subtracted, the result is rounded up to the next $10 and raised to $200 when it is above zero but below $200. 2026 bands: {K.usd(L.rothPhase.single[0])} to {K.usd(L.rothPhase.single[1])} single, {K.usd(L.rothPhase.joint[0])} to {K.usd(L.rothPhase.joint[1])} joint, $0 to $10,000 married filing separately after living together. The deductible part of a traditional IRA uses Worksheet 1-2 of the same publication with the deduction bands of the notice.</p>
+    <p>Test: the engine reproduces the illustrated worksheet of Publication 590-A for 2025 (single filer, modified AGI of $151,000, limit of $7,000 in that year), {K.usd(6540)}. With the 2026 figures the same income gives {K.usd(ex1.reduced)}, since the band now starts at {K.usd(L.rothPhase.single[0])}.</p>
+    <h2>4. HSAs and FSAs</h2>
+    <p>HSA limits are {K.usd(L.hsaSelf)} self-only and {K.usd(L.hsaFamily)} family for 2026 (<Fragment set:html={src('rp_2025_19', 'Rev. Proc. 2025-19')} />) and {K.usd(K.L27.hsaSelf)} and {K.usd(K.L27.hsaFamily)} for 2027 (<Fragment set:html={src('rp_2026_24', 'Rev. Proc. 2026-24')} />). The engine applies the monthly rule of <Fragment set:html={src('pub969', 'Publication 969')} />: one twelfth for each month you are eligible on the first day, with the last-month rule as an option. The {K.usd(L.hsaCatchUp)} catch-up starts the year you turn 55. Employer money counts toward the same limit. The health FSA limit of {K.usd(L.healthFsa)} and carryover of {K.usd(L.healthFsaCarryover)} come from <Fragment set:html={src('rp_2025_32', 'Rev. Proc. 2025-32')} />; the dependent care limit of {K.usd(L.dependentCareFsa)} from <Fragment set:html={src('pub15b', 'Publication 15-B')} />, capped at the lower earned income of a couple.</p>
+    <h2>5. Required minimum distributions</h2>
+    <p>The required minimum distribution is the account balance on December 31 of the prior year divided by a life expectancy factor from the tables of <Fragment set:html={src('ecfr_tables', '26 CFR 1.401(a)(9)-9')} />, loaded in full. The Uniform Lifetime Table is used unless the sole beneficiary is a spouse more than 10 years younger, in which case the Joint and Last Survivor Table applies. Beneficiaries use the Single Life Table. The applicable age depends on your birth date:</p>
+    <Fragment set:html={table(['Born from', 'Born to', 'RMD age'], ages, 'Section 401(a)(9)(C) as amended by SECURE and SECURE 2.0. For 1959, 73 under the proposed regulations of July 2024; the final rule of the same month reserved the paragraph.', ['l', 'l', 'r'])} />
+    <p>Tests: at age 75 a {K.usd(100000)} balance gives {K.usd(u75.rmd)} (factor {K.dec(u75.factor)}); with a sole beneficiary spouse aged 64, the joint table gives {K.dec(j75.factor)} and {K.usd(j75.rmd)}, the two worked cases of <Fragment set:html={src('pub590b', 'Publication 590-B')} />. Inherited accounts: an eligible designated beneficiary uses the Single Life factor of the year after death, reduced by one each year (a surviving spouse looks the table up again each year); other designated beneficiaries empty the account by December 31 of the tenth year after death and, when the owner had reached the required beginning date, also take yearly RMDs from 2025 (<Fragment set:html={src('notice_2024_35', 'Notice 2024-35')} />). The excise tax is {K.pct(P.rmd.exciseTax, 0)} of the shortfall, {K.pct(P.rmd.exciseTaxCorrected, 0)} if it is corrected in the window of section 4974(e).</p>
+    <h2>6. 2027 limits</h2>
+    <p>The parameter file holds a 2027 block whose plan and IRA amounts are empty until the IRS publishes them, expected in mid-November 2026. Until then the 2027 pages show "not announced" and no projection. The day the notice appears, the amounts are typed with their source, the tests are rerun and the pages switch to the official figures.</p>
+    <h2>7. What is not modeled</h2>
+    <ul>
+      <li>Plan-specific options: Roth accounts, after-tax money, the 403(b) 15-year catch-up and the 457(b) catch-up of the three years before normal retirement age.</li>
+      <li>Nondiscrimination tests that can refund deferrals of highly compensated employees.</li>
+      <li>The saver's credit amount, state taxes and the additional Medicare tax.</li>
+      <li>Investment returns, which are your assumption when a schedule needs one.</li>
+    </ul>
+    <p>Corrections: <a href={route('contact', lang)}>contact page</a>. These are estimates, not personal financial or tax advice.</p>
+  </article>
+</PageLayout>

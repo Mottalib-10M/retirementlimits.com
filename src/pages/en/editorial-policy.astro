@@ -1,0 +1,21 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, REVIEW_CYCLE_MONTHS } from '../../data/site-config';
+const lang = 'en';
+---
+<PageLayout title="Editorial policy of Limit Ledger: IRS texts, dated limits, fixes" description="How Limit Ledger writes its contribution limit pages: IRS notices and publications only, every amount read from a parameter file, 2027 left empty until the IRS publishes it." lang={lang} noindex={true} breadcrumbs={[{ label: 'Editorial policy' }]} showAuthor={false}>
+  <div class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>Editorial policy</h1>
+    <h2>What counts as a source</h2>
+    <p>Limits come from the IRS texts that set them: the yearly cost-of-living notice for plans and IRAs, the revenue procedures for HSAs and the health FSA, Publication 15-B for dependent care, Publications 560, 590-A, 590-B and 969 for the rules, and the regulations of 26 CFR 1.401(a)(9) for distributions. Plan providers' and brokers' articles are read to know what people ask, never as a source of a number.</p>
+    <h2>How a figure reaches a page</h2>
+    <p>No amount is typed into the text. The parameter file holds each limit with its source and the date it was read; the calculators and the pages read that file. The worked examples printed by the IRS are automated tests: if a parameter is mistyped, the site does not build.</p>
+    <h2>No projection shown as official</h2>
+    <p>Before the IRS announces a year, its pages say the limits are not announced. We do not publish estimates of future limits next to official ones.</p>
+    <h2>Independence</h2>
+    <p>{AUTHOR_NAME} receives nothing from plan providers, brokers, fund companies, advisers or insurers and links to none of them. There is no advertising today; if some is added it will be labeled, limited to three places a page, and never come from a firm selling retirement accounts or advice.</p>
+    <h2>Review and corrections</h2>
+    <p>The site is reviewed at least every {REVIEW_CYCLE_MONTHS} months, and each autumn when the IRS publishes the next year's limits. A reported error is checked against the source and, once fixed, moves the date shown on the page. Write through the <a href={route('contact', lang)}>contact page</a>; the calculations are explained on the <a href={route('method', lang)}>method page</a>.</p>
+  </div>
+</PageLayout>

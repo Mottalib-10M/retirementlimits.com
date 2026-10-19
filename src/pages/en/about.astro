@@ -1,0 +1,30 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import LegalIdentity from '../../components/LegalIdentity.astro';
+import { route } from '../../i18n/routes';
+import { AUTHOR_NAME, AUTHOR_DESC, CONTACT_EMAIL } from '../../data/site-config';
+import { src } from '../../lib/helpers';
+import { profilePageSchema, breadcrumbSchema } from '../../lib/seo';
+const lang = 'en';
+const path = route('about', lang);
+const title = 'Limit Ledger 2026: who publishes these IRS limit calculators';
+const description = 'Limit Ledger is published by Radif Partners: 2026 IRS contribution limits and RMD tables applied to your age and income, nothing to sell, no e-mail asked.';
+---
+<PageLayout title={title} description={description} lang={lang} jsonLd={[profilePageSchema({ path, lang }), breadcrumbSchema([{ name: 'Home', path: route('home', lang) }, { name: 'About', path }])]} breadcrumbs={[{ label: 'About' }]}>
+  <article class="prose prose-slate max-w-none prose-headings:font-serif">
+    <h1>About Limit Ledger</h1>
+    <p>{AUTHOR_DESC.en}</p>
+    <h2>The gap this site fills</h2>
+    <p>Every November the IRS publishes one number per account, and within a day hundreds of pages repeat it. The number is right for a minority of readers. A 61 year old has a larger catch-up than a 65 year old; a single filer with a modified AGI of $160,000 can put part of the IRA limit in a Roth, not all of it and not nothing; a manager who earned more than $150,000 last year has to make the catch-up as Roth; a widow inheriting an IRA does not follow the same RMD rule as a nephew. Search results for these questions are held by plan providers and brokers whose pages print the headline and send you to a representative. Some independent pages still show a previous year's limit, or a 2017 RMD table with a start at 70½ and a 50 % penalty.</p>
+    <p>This site does better than the first Google result because it computes your own limit instead of printing the IRS headline: the catch-up by birth year including the age 60 to 63 amount, the mandatory Roth catch-up from your 2025 wages, the reduced Roth IRA amount by the Publication 590-A worksheet, the deductible part of a traditional IRA, and RMDs from the Uniform, Joint and Single Life tables, inherited accounts included, all with the 2026 IRS figures, the 2027 pages ready for the announcement day, and nothing to sell.</p>
+    <h2>Who publishes it</h2>
+    <p>The site is published by {AUTHOR_NAME}, a company that builds calculators on public rules. It is not a plan provider, a broker, an investment adviser, a bank or an insurer, it is not run by or affiliated with the IRS or any government agency, receives no commission and has no partner to send you to. Pages carry no affiliate link.</p>
+    <LegalIdentity lang={lang} />
+    <h2>What we rely on</h2>
+    <p>Notice 2025-67 for the 2026 plan and IRA limits (<Fragment set:html={src('notice_2025_67', 'irs.gov')} />), the IRS cost-of-living table for earlier years, Rev. Proc. 2025-19 and Rev. Proc. 2026-24 for HSAs, Rev. Proc. 2025-32 for the health FSA, Publication 15-B for dependent care assistance, Publications 590-A, 590-B, 560 and 969, the final regulations on catch-up contributions and the RMD regulations of 26 CFR 1.401(a)(9), whose life expectancy tables we load as published.</p>
+    <h2>What the site leaves out</h2>
+    <p>Plan rules that are not in the tax code: whether your plan offers a Roth option, a match, after-tax contributions or a special 403(b) or 457(b) catch-up is in your plan document. Investment returns are your assumption. State taxes and the saver's credit amount are not computed. The <a href={route('method', lang)}>method page</a> lists every formula and its limits; the <a href={route('editorial', lang)}>editorial policy</a> explains corrections.</p>
+    <h2>Contact</h2>
+    <p><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, for corrections and sources. We answer questions about a rule, not about your personal situation.</p>
+  </article>
+</PageLayout>

@@ -1,0 +1,21 @@
+{
+ "name": "Limit Ledger",
+ "short_name": "Limit Ledger",
+ "description": "2026 contribution limits for 401(k), 403(b), 457(b), IRA, Roth IRA and HSA applied to your age, pay and income, with the RMD from the IRS tables and 2027 limits on announcement day.",
+ "start_url": "/en/",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#8A2433",
+ "icons": [
+  {
+   "src": "/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}
