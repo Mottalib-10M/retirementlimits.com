@@ -7,7 +7,9 @@
 import P from '../../data/params-2026.json';
 
 export type Year = '2026' | '2027';
-export type Plan = '401k' | '403b' | 'gov457' | 'simple' | 'simpleApplicable';
+/** 'simple' / 'simpleApplicable' = SIMPLE IRA (408(p)); 'simple401k' / 'simple401kApplicable' = SIMPLE 401(k) (401(k)(11)), same dollar limits. */
+export type Plan = '401k' | '403b' | 'gov457' | 'simple' | 'simpleApplicable' | 'simple401k' | 'simple401kApplicable';
+const baseKind = (p: Plan): Plan => (p === 'simple401k' ? 'simple' : p === 'simple401kApplicable' ? 'simpleApplicable' : p);
 type Lim = (typeof P.limits)['2026'];
 
 /** Limits of a year. 2027 entries are null until the IRS publishes its notice. */
@@ -24,7 +26,8 @@ export function catchUpTier(age: number): CatchTier {
 }
 
 /** Catch-up amount for a plan and an age (null if the year's figure is not announced). */
-export function catchUp(plan: Plan, age: number, y: Year = '2026'): number | null {
+export function catchUp(planIn: Plan, age: number, y: Year = '2026'): number | null {
+  const plan = baseKind(planIn);
   const t = catchUpTier(age);
   if (t === 'none') return 0;
   const l = lim(y) as Record<string, number | null | undefined>;
@@ -34,7 +37,8 @@ export function catchUp(plan: Plan, age: number, y: Year = '2026'): number | nul
 }
 
 /** Base elective deferral limit of a plan. */
-export function baseDeferral(plan: Plan, y: Year = '2026'): number | null {
+export function baseDeferral(planIn: Plan, y: Year = '2026'): number | null {
+  const plan = baseKind(planIn);
   const l = lim(y) as Record<string, number | null | undefined>;
   if (plan === 'simple') return l.simple ?? null;
   if (plan === 'simpleApplicable') return l.simpleApplicable ?? null;
@@ -59,7 +63,8 @@ export function deferral(plan: Plan, birthYear: number, pay: number, priorWages 
   const raw = base + c;
   const total = Math.max(0, Math.min(raw, pay));
   const thr = (lim(y).rothCatchUpWageThreshold as number | null) ?? L.rothCatchUpWageThreshold;
-  // SIMPLE IRAs (408(p)) and SEPs are outside the Roth catch-up rule (Notice 2025-67, § 414(v)(7)(A)).
+  // Only SEPs (408(k)) and SIMPLE IRAs (408(p)) are outside the Roth catch-up rule: § 414(v)(7)(C), Notice 2023-62
+  // section III. A SIMPLE 401(k) is a 401(k) plan and is covered.
   const rothCatchUp = c > 0 && plan !== 'simple' && plan !== 'simpleApplicable' && priorWages > thr;
   return { base, catchUp: c, total, tier: catchUpTier(age), age, cappedByPay: raw > pay, rothCatchUp, rothThreshold: thr };
 }

@@ -393,6 +393,42 @@
       "label": {
         "en": "IRS Topic no. 554, Self-employment tax"
       }
+    },
+    "pub525": {
+      "url": "https://www.irs.gov/pub/irs-pdf/p525.pdf",
+      "label": {
+        "en": "IRS Publication 525 (2025), Taxable and Nontaxable Income: excess deferrals (read Oct. 19, 2026)"
+      }
+    },
+    "notice_2024_02": {
+      "url": "https://www.irs.gov/pub/irs-drop/n-24-02.pdf",
+      "label": {
+        "en": "IRS Notice 2024-2, section E: higher SIMPLE limits under SECURE 2.0 section 117 (read Oct. 19, 2026)"
+      }
+    },
+    "notice_2023_62": {
+      "url": "https://www.irs.gov/pub/irs-drop/n-23-62.pdf",
+      "label": {
+        "en": "IRS Notice 2023-62: Roth catch-up rule, plans covered and excluded (read Oct. 19, 2026)"
+      }
+    },
+    "irs_457b": {
+      "url": "https://www.irs.gov/retirement-plans/irc-457b-deferred-compensation-plans",
+      "label": {
+        "en": "IRS, IRC 457(b) deferred compensation plans (page updated Apr. 9, 2026, read Oct. 19, 2026)"
+      }
+    },
+    "pub4484": {
+      "url": "https://www.irs.gov/pub/irs-pdf/p4484.pdf",
+      "label": {
+        "en": "IRS Publication 4484, retirement plans for tax-exempt and government employers: special 457 catch-up (read Oct. 19, 2026)"
+      }
+    },
+    "iw2w3": {
+      "url": "https://www.irs.gov/pub/irs-pdf/iw2w3.pdf",
+      "label": {
+        "en": "IRS General Instructions for Forms W-2 and W-3 (2026), box 1 (read Oct. 19, 2026)"
+      }
     }
   }
 }

@@ -35,7 +35,7 @@ ${h.table(['Age on December 31, 2026', 'Standard plan', 'Plan with the higher li
 ], 'Employee salary reduction contributions; the employer contribution is added on top.', ['l', 'r', 'r'])}
 <p>The catch-up column holds an oddity. In a plan with the higher base, the age 50 catch-up is ${K.usd(L.simpleCatchUpApplicable)}, which is less than the ${K.usd(L.simpleCatchUp)} of a standard plan, because the higher one is pegged to an older figure that the IRS kept unchanged for 2026. The total is still larger: ${K.usd(small.total)} against ${K.usd(large.total)} for the same 56 year old. At 60 to 63 both kinds of plan use ${K.usd(L.simpleCatchUp6063)}.</p>
 <h2>Which limit applies to your employer</h2>
-<p>The size test counts employees who earned at least ${K.usd(5000)} from the employer in the preceding year. With 25 or fewer, the plan uses the higher limits without doing anything. With 26 to 100, the employer may opt in, but only by raising its own contribution to a 4 % match or a 3 % nonelective contribution for the year. An employer that grows past 25 can keep the higher figures only by making that election. If you do not know which side your plan is on, the summary description or the annual notice the employer must give before the election period says so.</p>
+<p>The size test counts employees who earned at least ${K.usd(5000)} from the employer in the preceding year. With 25 or fewer, the plan uses the higher limits without doing anything. With 26 to 100, the employer may opt in, but only by raising its own contribution to a 4 % match or a 3 % nonelective contribution for the year. An employer that grows past 25 keeps the automatic higher limits for a two-year grace period, unless the growth comes from an acquisition, and after that only by making the election (${h.src('notice_2024_02', 'Notice 2024-2, Q&A E-2 to E-5')}). If you do not know which side your plan is on, the summary description or the annual notice the employer must give before the election period says so.</p>
 <p>Above 100 employees an employer cannot keep a SIMPLE IRA past a short grace period; it moves to a 401(k), where the regular ${K.usd(L.deferral)} limit applies (${h.a('401k-contribution-limits', '401(k) limits')}).</p>
 ${h.mini('simple', { t: 'Your SIMPLE limit at a larger employer', p: ['by'], d: { big: 'large', by: 1970, pay: 70000 } })}
 <h2>What the employer must add</h2>
@@ -57,5 +57,5 @@ ${h.mini('catchup', { t: 'Catch-up in a SIMPLE plan for your birth year', p: ['b
   tool: 'simple',
   toolArg: { pay: 70000, by: 1970, big: 'small' },
   related: ['sep-ira-contribution-limits', 'catch-up-contributions', 'roth-catch-up-rule', '401k-contribution-limits', 'super-catch-up-60-63'],
-  sources: ['notice_2025_67', 'ir_2025_111', 'pub560'],
+  sources: ['notice_2025_67', 'ir_2025_111', 'pub560', 'notice_2024_02'],
 });

@@ -35,7 +35,7 @@ ${h.table(['Year', 'Under 50', 'Catch-up at 50', 'Total at 50 and over'], idx, `
 <p>The cap is personal and global. Two traditional IRAs and a Roth IRA at three different firms still share a single ${K.usd(L.ira)}, and the custodians do not talk to each other: tracking the total is your job. You can split it any way you like, for instance ${K.usd(3000)} to a Roth and ${K.usd(L.ira - 3000)} to a traditional account. Rollovers, direct transfers between custodians and conversions are not contributions and do not use any of it. The Roth side has an income test of its own that can lower your share (see ${h.a('roth-ira-income-limits', 'the Roth phase-out calculator')}); the traditional side never has one, though the deduction may be limited if a workplace plan covers you (${h.a('traditional-ira-deduction-limits', 'deduction limits')}).</p>
 <p>Workplace plans are separate. A SEP IRA receives employer contributions under its own rules, and a SIMPLE IRA has its own deferral limit; neither uses up the ${K.usd(L.ira)} you may add to a regular IRA. The comparison with a 401(k) is on ${h.a('ira-vs-401k', 'IRA vs 401(k)')}.</p>
 <h2>What counts as compensation</h2>
-<p>The second ceiling is your taxable compensation for the year: you cannot put in more than you earned from work. Publication 590-A lists what qualifies (${h.src('pub590a', 'Publication 590-A, chapter 1')}).</p>
+<p>The second ceiling is your taxable compensation for the year: you cannot put in more than you earned from work. Publication 590-A lists what qualifies (${h.src('pub590a', 'Publication 590-A, chapter 1')}). For an employee it is the amount in box 1 of Form W-2, and box 1 leaves out pre-tax 401(k) and 403(b) deferrals (${h.src('iw2w3', 'W-2 instructions, box 1')}): ${K.usd(30000)} of salary with ${K.usd(L.deferral)} deferred pre-tax leaves ${K.usd(30000 - L.deferral)} of IRA room.</p>
 ${h.table(['Counts as compensation', 'Does not count'], [
   ['Wages, salaries, tips, bonuses, commissions', 'Interest and dividends'],
   ['Net earnings from self-employment, after the deduction for half the SE tax and plan contributions', 'Rental income and other passive income'],
@@ -65,5 +65,5 @@ ${h.mini('ira', { t: 'Do you get the catch-up this year?', p: ['by'], d: { by: 1
   tool: 'ira',
   toolArg: { by: 1975, comp: 60000 },
   related: ['roth-ira-income-limits', 'traditional-ira-deduction-limits', 'spousal-ira', 'ira-vs-401k', 'ira-limits-2027'],
-  sources: ['notice_2025_67', 'irs_cola', 'pub590a'],
+  sources: ['notice_2025_67', 'irs_cola', 'pub590a', 'iw2w3'],
 });

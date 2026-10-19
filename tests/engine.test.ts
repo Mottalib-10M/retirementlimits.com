@@ -53,10 +53,15 @@ describe('workplace plans', () => {
   it('deferral never exceeds pay', () => {
     expect(deferral('401k', 1980, 18000).total).toBe(18000);
   });
-  it('mandatory Roth catch-up above $150,000 of 2025 wages, never for SIMPLE', () => {
+  it('mandatory Roth catch-up above $150,000 of 2025 wages, never for a SIMPLE IRA, yes for a SIMPLE 401(k)', () => {
     expect(deferral('401k', 1968, 160000, 150000).rothCatchUp).toBe(false);
     expect(deferral('401k', 1968, 160000, 150001).rothCatchUp).toBe(true);
     expect(deferral('simple', 1968, 160000, 200000).rothCatchUp).toBe(false);
+    expect(deferral('simpleApplicable', 1968, 160000, 200000).rothCatchUp).toBe(false);
+    // SIMPLE 401(k): covered by § 414(v)(7)(A); only SEPs and SIMPLE IRAs are excluded (Notice 2023-62).
+    expect(deferral('simple401k', 1968, 160000, 200000).rothCatchUp).toBe(true);
+    expect(deferral('simple401k', 1968, 160000, 200000).total).toBe(21000);
+    expect(deferral('simple401kApplicable', 1968, 160000, 150000).rothCatchUp).toBe(false);
     expect(deferral('401k', 1990, 300000, 300000).rothCatchUp).toBe(false);
   });
   it('SIMPLE amounts', () => {
@@ -169,5 +174,15 @@ describe('every calculator runs on its defaults', () => {
     const v = Object.fromEntries(spec.inputs.map((i) => [i.id, i.def]));
     const out = JSON.stringify(spec.run(v));
     expect(out).not.toMatch(/NaN|undefined|Infinity/);
+  });
+});
+
+describe('IRA compensation is W-2 box 1, after pre-tax deferrals (Pub. 590-A; W-2 instructions, box 1)', () => {
+  it('401(k) and IRA calculator caps the IRA at pay minus the deferral', () => {
+    const r = SPECS.both().run({ pay: 30000, by: '1980' });
+    // $30,000 of pay, $24,500 deferred pre-tax: $5,500 of box 1 wages, so $5,500 of IRA room.
+    expect(r.value).toBe('$30,000');
+    const hi = SPECS.both().run({ pay: 120000, by: '1980' });
+    expect(hi.value).toBe('$32,000');
   });
 });

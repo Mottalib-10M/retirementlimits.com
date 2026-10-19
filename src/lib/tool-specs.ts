@@ -47,10 +47,12 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
       const pay = n(v, 'pay'), age = ageAtYearEnd(by(v));
       const prior = n(v, 'prior') || pay;
       const d = deferral(s(v, 'plan') as Plan, by(v), pay, prior);
-      const roth = rothReduced(s(v, 'f') as Filing, n(v, 'magi'), age, pay);
-      const ded = deductible(s(v, 'f') as Filing, s(v, 'cov') as Coverage, n(v, 'magi'), age, pay);
+      // IRA compensation = W-2 box 1, net of pre-tax deferrals; a mandatory Roth catch-up stays in box 1.
+      const comp = Math.max(0, pay - (d.total - (d.rothCatchUp ? d.catchUp : 0)));
+      const roth = rothReduced(s(v, 'f') as Filing, n(v, 'magi'), age, comp);
+      const ded = deductible(s(v, 'f') as Filing, s(v, 'cov') as Coverage, n(v, 'magi'), age, comp);
       const h = s(v, 'hsa') === 'none' ? null : hsa(s(v, 'hsa') as HsaCover, age);
-      const ira = iraLimit(age, pay).limit;
+      const ira = iraLimit(age, comp).limit;
       const iraLine = roth.reduced > 0 ? roth.reduced : ira;
       const tot = d.total + ira + (h?.total ?? 0);
       return {
@@ -96,7 +98,7 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
 
   /* Catch-up for a birth year */
   catchup: (arg) => ({
-    inputs: [BIRTH(Number(arg?.by ?? 1972)), { kind: 'select', id: 'plan', label: 'Plan', def: String(arg?.plan ?? '401k'), options: [{ value: '401k', label: '401(k), 403(b), 457(b)' }, { value: 'simple', label: 'SIMPLE IRA or 401(k)' }, { value: 'simpleApplicable', label: 'SIMPLE, 25 or fewer employees' }] }],
+    inputs: [BIRTH(Number(arg?.by ?? 1972)), { kind: 'select', id: 'plan', label: 'Plan', def: String(arg?.plan ?? '401k'), options: [{ value: '401k', label: '401(k), 403(b), 457(b)' }, { value: 'simple', label: 'SIMPLE IRA' }, { value: 'simpleApplicable', label: 'SIMPLE IRA, 25 or fewer employees' }, { value: 'simple401k', label: 'SIMPLE 401(k)' }, { value: 'simple401kApplicable', label: 'SIMPLE 401(k), 25 or fewer employees' }] }],
     run: (v) => {
       const age = ageAtYearEnd(by(v));
       const plan = s(v, 'plan') as Plan;
@@ -261,8 +263,11 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
     run: (v) => {
       const age = ageAtYearEnd(by(v));
       const d = deferral('401k', by(v), n(v, 'pay'));
-      const i = iraLimit(age, Math.max(0, n(v, 'pay'))).limit;
-      return { label: '401(k) and IRA in the same year', value: usd(d.total + i), sub: 'Separate limits: a 401(k) deferral does not reduce the IRA limit.',
+      // IRA compensation = W-2 box 1 (Pub. 590-A, What Is Compensation?), which excludes pre-tax elective
+      // deferrals (General Instructions for Forms W-2 and W-3, box 1). The deferral is taken as pre-tax here.
+      const comp = Math.max(0, n(v, 'pay') - d.total);
+      const i = iraLimit(age, comp).limit;
+      return { label: '401(k) and IRA in the same year', value: usd(d.total + i), sub: i < iraLimit(age, Infinity).limit ? `IRA capped at your taxable pay after the pre-tax 401(k) deferral, ${usd(comp)} (W-2 box 1).` : 'Separate limits: a 401(k) deferral does not reduce the IRA limit, only the pay it is tested against.',
         rows: [['401(k) deferral', usd(d.total), d.total], ['IRA, traditional or Roth', usd(i), i], ['Share of pay', pct((d.total + i) / Math.max(1, n(v, 'pay')), 0)]] };
     },
   }),
