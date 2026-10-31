@@ -186,3 +186,21 @@ describe('IRA compensation is W-2 box 1, after pre-tax deferrals (Pub. 590-A; W-
     expect(hi.value).toBe('$32,000');
   });
 });
+
+import { getTool } from '../src/lib/tool-specs';
+describe('outil principal : note du Roth (audit de Sami du 2026-10-28)', () => {
+  const run = (o: Record<string, number | string>) => {
+    const t = getTool('all');
+    const v: Record<string, number | string> = Object.fromEntries(t.inputs.map((i) => [i.id, i.def]));
+    return t.run({ ...v, ...o } as never) as { note?: string };
+  };
+  it('MAGI 250 000 $ célibataire : aucun Roth direct, la note ne reprend pas le plafond', () => {
+    const r = run({ f: 'single', magi: 250000 });
+    expect(r.note).toMatch(/No direct Roth IRA contribution/);
+    expect(r.note).not.toMatch(/here \$8,600/);
+  });
+  it('couple marié, 20 000 $ de salaire : mention de la spousal IRA', () => {
+    expect(run({ f: 'joint', pay: 20000, magi: 100000 }).note).toMatch(/spousal IRA/);
+    expect(run({ f: 'single', pay: 20000, magi: 100000 }).note).not.toMatch(/spousal IRA/);
+  });
+});

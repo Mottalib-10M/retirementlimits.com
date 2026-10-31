@@ -53,7 +53,6 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
       const ded = deductible(s(v, 'f') as Filing, s(v, 'cov') as Coverage, n(v, 'magi'), age, comp);
       const h = s(v, 'hsa') === 'none' ? null : hsa(s(v, 'hsa') as HsaCover, age);
       const ira = iraLimit(age, comp).limit;
-      const iraLine = roth.reduced > 0 ? roth.reduced : ira;
       const tot = d.total + ira + (h?.total ?? 0);
       return {
         label: 'Your own 2026 limits add up to', value: usd(tot),
@@ -65,7 +64,7 @@ export const SPECS: Record<string, (arg?: Record<string, number | string>) => To
           [ded.status === 'full' ? 'Traditional IRA: fully deductible' : ded.status === 'none' ? 'Traditional IRA: not deductible' : 'Traditional IRA: deductible part', usd(ded.deductible)],
           ['HSA, catch-up included', h ? usd(h.total) : 'no HDHP', h?.total ?? 0],
         ],
-        note: `Total = deferral + IRA + HSA. A direct Roth IRA contribution uses the same ${usd(ira)}: here ${usd(iraLine)}. Employer money comes on top, up to ${usd(L.total415c)} (section 415(c)).`,
+        note: `Total = deferral + IRA + HSA. ${roth.status === 'none' ? `No direct Roth IRA contribution is allowed at this MAGI: the ${usd(ira)} can only go to a traditional IRA.` : `A direct Roth IRA contribution uses the same ${usd(ira)}: here ${usd(roth.reduced)}.`}${s(v, 'f') === 'joint' && iraLimit(age, comp).cappedByPay ? ' Filing jointly, the spousal IRA rule also counts your spouse\'s taxable pay, so your IRA limit can be higher than your own pay allows.' : ''} Employer money comes on top, up to ${usd(L.total415c)} (section 415(c)).`,
       };
     },
   }),
