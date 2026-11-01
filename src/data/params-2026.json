@@ -279,6 +279,91 @@
     "sepRate": 0.25,
     "selfEmployedRate": 0.2
   },
+  "estimate2027": {
+    "_note": "Our own estimate of the 2027 plan and IRA limits, NOT an IRS figure. It applies the indexing formulas of the code (section 415(d) for plan limits, section 1(f)(3) for the IRA limit and section 219(b)(5)(C)(iii) for the IRA catch-up) to the inflation indexes published by the Bureau of Labor Statistics, then rounds down as the code requires. Back-tested against the official 2024, 2025 and 2026 limits. Replaced by the IRS notice the day it is published (limits.2027.announced = true).",
+    "computed_at": "2026-11-01",
+    "cpiReleased": "2026-10-14",
+    "cpiU_q3": {
+      "_note": "CPI-U, U.S. city average, all items, not seasonally adjusted (BLS series CUUR0000SA0), July, August and September of each year.",
+      "2001": [
+        177.5,
+        177.5,
+        178.3
+      ],
+      "2005": [
+        195.4,
+        196.4,
+        198.8
+      ],
+      "2023": [
+        305.691,
+        307.026,
+        307.789
+      ],
+      "2024": [
+        314.54,
+        314.796,
+        315.301
+      ],
+      "2025": [
+        323.048,
+        323.976,
+        324.8
+      ],
+      "2026": [
+        333.918,
+        334.98,
+        336.94
+      ]
+    },
+    "planBases": {
+      "_note": "Base amount, base quarter (year of the July to September quarter) and rounding step of each section 415(d) limit.",
+      "deferral": [
+        15000,
+        "2005",
+        500
+      ],
+      "catchUp50": [
+        5000,
+        "2005",
+        500
+      ],
+      "total415c": [
+        40000,
+        "2001",
+        1000
+      ],
+      "compensationCap": [
+        200000,
+        "2001",
+        5000
+      ]
+    },
+    "cpiU_12mAug": {
+      "_note": "CPI-U, average of the 12 months ending August 31 (section 1(f)(4) before 2018), used to splice the IRA base year.",
+      "2007": 204.8725,
+      "2016": 238.649
+    },
+    "cCpiU_12mAug": {
+      "_note": "Chained CPI-U (BLS series SUUR0000SA0), average of the 12 months ending August 31. The 2026 average has 11 months: BLS published no October 2025 index.",
+      "2016": 135.993,
+      "2022": 159.87925,
+      "2023": 168.317083,
+      "2024": 173.015833,
+      "2025": 177.205833,
+      "2026": 182.856455
+    },
+    "iraBase": [
+      5000,
+      "2007",
+      500
+    ],
+    "iraCatchUpBase": [
+      1000,
+      "2022",
+      100
+    ]
+  },
   "sources": {
     "notice_2025_67": {
       "url": "https://www.irs.gov/pub/irs-drop/n-25-67.pdf",
@@ -428,6 +513,24 @@
       "url": "https://www.irs.gov/pub/irs-pdf/iw2w3.pdf",
       "label": {
         "en": "IRS General Instructions for Forms W-2 and W-3 (2026), box 1 (read Oct. 19, 2026)"
+      }
+    },
+    "bls_cpi": {
+      "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+      "label": {
+        "en": "BLS, Consumer Price Index news release for September 2026 (October 14, 2026)"
+      }
+    },
+    "bls_cpi_data": {
+      "url": "https://data.bls.gov/timeseries/CUUR0000SA0",
+      "label": {
+        "en": "BLS, CPI-U all items series CUUR0000SA0 and chained CPI-U series SUUR0000SA0"
+      }
+    },
+    "usc_415": {
+      "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title26/html/USCODE-2023-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.htm",
+      "label": {
+        "en": "26 U.S.C. 415(d), cost-of-living adjustments of plan limits (govinfo)"
       }
     }
   }

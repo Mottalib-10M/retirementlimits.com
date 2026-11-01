@@ -10,6 +10,7 @@ import { rothReduced, worksheet22, deductible, iraLimit, spousal, deductRange } 
 import { hsa, healthFsa, dependentCare } from '../src/lib/engine/health';
 import { applicableAge, firstRmdYear, ownerRmd, joint, uniform, single, inherited, excise, qcd } from '../src/lib/engine/rmd';
 import { SPECS, getTool } from '../src/lib/tool-specs';
+import { planEstimate, iraEstimate, iraCatchUpEstimate, estimates2027 } from '../src/lib/engine/estimate';
 
 const L = P.limits['2026'];
 
@@ -202,5 +203,25 @@ describe('outil principal : note du Roth (audit de Sami du 2026-10-28)', () => {
   it('couple marié, 20 000 $ de salaire : mention de la spousal IRA', () => {
     expect(run({ f: 'joint', pay: 20000, magi: 100000 }).note).toMatch(/spousal IRA/);
     expect(run({ f: 'single', pay: 20000, magi: 100000 }).note).not.toMatch(/spousal IRA/);
+  });
+});
+
+describe('2027 estimate: the indexing formulas reproduce the official 2024 to 2026 limits', () => {
+  it('section 415(d) plan limits', () => {
+    expect([2024, 2025, 2026].map((y) => planEstimate('deferral', y).value)).toEqual([23000, 23500, 24500]);
+    expect([2024, 2025, 2026].map((y) => planEstimate('catchUp50', y).value)).toEqual([7500, 7500, 8000]);
+    expect([2024, 2025, 2026].map((y) => planEstimate('total415c', y).value)).toEqual([69000, 70000, 72000]);
+    expect([2024, 2025, 2026].map((y) => planEstimate('compensationCap', y).value)).toEqual([345000, 350000, 360000]);
+    expect(planEstimate('deferral', 2026).value).toBe(P.limits['2026'].deferral);
+  });
+  it('IRA limit and IRA catch-up', () => {
+    expect([2025, 2026].map((y) => iraEstimate(y).value)).toEqual([7000, 7500]);
+    expect([2025, 2026].map((y) => iraCatchUpEstimate(y).value)).toEqual([1000, 1100]);
+  });
+  it('2027 estimate (CPI of September 2026)', () => {
+    const e = estimates2027();
+    expect(e.deferral.value).toBe(25500); expect(e.catchUp50.value).toBe(8500);
+    expect(e.total415c.value).toBe(75000); expect(e.compensationCap.value).toBe(375000);
+    expect(e.ira.value).toBe(7500); expect(e.iraCatchUp.value).toBe(1100);
   });
 });

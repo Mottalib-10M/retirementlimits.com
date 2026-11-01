@@ -2,7 +2,8 @@
  * Writing kit (CONTRIBUTING-PAGES.md): every figure written in a page comes from here, never typed by hand.
  *   K.P, K.L, K.L27      params-2026.json, the 2026 limits, the 2027 block (nulls until announced)
  *   K.tool(kind, args)   runs a calculator of tool-specs.ts and returns its result card
- *   engine functions     limits (deferral, catchUp…), ira (rothReduced, deductible…), health (hsa…), rmd (ownerRmd…)
+ *   engine functions     limits (deferral, catchUp…), ira (rothReduced, deductible…), health (hsa…), rmd (ownerRmd…),
+ *                        estimate (estimates2027, planEstimate…: our labelled 2027 estimate, never an IRS figure)
  *   formats              K.usd, K.pct, K.num, K.dec, K.day
  */
 import P from '../data/params-2026.json';
@@ -12,6 +13,7 @@ import * as limits from './engine/limits';
 import * as ira from './engine/ira';
 import * as health from './engine/health';
 import * as rmd from './engine/rmd';
+import * as estimate from './engine/estimate';
 import type { V } from './tool-types';
 
 function tool(kind: string, args: V = {}) {
@@ -21,7 +23,7 @@ function tool(kind: string, args: V = {}) {
 }
 export const KIT = {
   P, L: P.limits['2026'], L27: P.limits['2027'], tool,
-  ...limits, ...ira, ...health, ...rmd,
+  ...limits, ...ira, ...health, ...rmd, ...estimate,
   usd, pct, num: (x: number) => formatNumber(x, 0), dec: (x: number, d = 1) => formatDecimal(x, d), day: (iso: string) => displayDate(iso, 'en-US'),
 };
 export type Kit = typeof KIT;

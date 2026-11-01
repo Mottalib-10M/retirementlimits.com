@@ -17,6 +17,8 @@ const S = L.rothPhase.single, J = L.rothPhase.joint;
 const rows = H.years.map((y, i) => ({ y, ira: H.ira[i], cu: H.iraCatchUp[i] }));
 // A saver born in 1977 turns 50 in 2027: first year of the IRA catch-up.
 const late26 = K.rothReduced('single', 160000, 49, 160000);
+// Our estimate (engine/estimate.ts): section 1(f)(3) indexing on the chained CPI to August 2026. Never an IRS figure.
+const E = K.estimates2027();
 
 export default defineGuide({
   id: 'ira-limits-2027',
@@ -25,17 +27,17 @@ export default defineGuide({
   slug: 'ira-limits-2027',
   nav: 'IRA limits 2027',
   card: ok ? 'The 2027 IRA limit, catch-up and Roth bands, against 2026' : 'Not announced yet: how the IRA limit is indexed and what to do before April 15',
-  title: ok ? `IRA Limits 2027: ${K.usd(ira27)} Against ${K.usd(L.ira)} in 2026, Roth Bands` : 'IRA Limits 2027: Not Published Yet, 2026 Room Until April',
+  title: ok ? `IRA Limits 2027: ${K.usd(ira27)} Against ${K.usd(L.ira)} in 2026, Roth Bands` : `IRA Limits 2027: ${K.usd(E.ira.value)} Estimate, 2026 Room Until April`,
   description: ok
     ? `IRA limits 2027 from the IRS notice: ${K.usd(ira27)} against ${K.usd(L.ira)} in 2026, with the 2027 catch-up and Roth income bands. Your own 2027 IRA figure by birth year.`
-    : `IRA limits 2027 are not published: the IRS sets them ${expected}. Meanwhile the 2026 limit of ${K.usd(L.ira)} stays open until April 15, 2027. How indexing works.`,
+    : `IRA limits 2027 are not published (IRS notice ${expected}). Our CPI estimate: ${K.usd(E.ira.value)} plus ${K.usd(E.iraCatchUp.value)} at 50. The 2026 room stays open to April 15, 2027.`,
   h1: ok ? 'IRA limits 2027: the new amounts and Roth bands' : 'IRA limits 2027: not published yet, and what you can still do for 2026',
   intro: ok
     ? `The IRS has published the 2027 IRA amounts. The calculator compares your 2027 IRA limit with your 2026 one by birth year.`
-    : `The 2027 IRA limit, catch-up and Roth income bands come in the same IRS notice as the 401(k) figures, and this page shows none of them until then. What it does show is how each one moves and what the 2026 deadline still allows.`,
+    : `The 2027 IRA limit, catch-up and Roth income bands come in the same IRS notice as the 401(k) figures, and none of them is official yet. This page gives our own estimate, labelled as such, how each amount moves and what the 2026 deadline still allows.`,
   resume: ok
     ? `For 2027 the IRA contribution limit, shared by traditional and Roth IRAs, is ${K.usd(ira27)}, against ${K.usd(L.ira)} in 2026, and the catch-up from age 50 is ${showN('iraCatchUp')}. The Roth IRA phase-out runs from ${band('single')} for a single filer and from ${band('joint')} on a joint return. The limit still cannot exceed your taxable compensation for the year, and a spouse with no pay can contribute on the other spouse's earnings. Contributions for 2027 can be made from January 1, 2027 until the April 2028 filing deadline. Contributions for 2026 remain possible until April 15, 2027, at the 2026 limit of ${K.usd(L.ira)} (${K.usd(L.ira + L.iraCatchUp)} at 50 or over) and with the 2026 Roth bands, ${K.usd(S[0])} to ${K.usd(S[1])} single and ${K.usd(J[0])} to ${K.usd(J[1])} joint. The calculator gives your own 2027 figure from your year of birth.`
-    : `The 2027 IRA contribution limit has not been announced. The IRS sets it in the autumn notice on retirement plan amounts, expected ${expected}; the 2026 notice came on November 13, 2025. Two rules decide how far it can move. The base limit, ${K.usd(L.ira)} in 2026, is indexed in steps of ${K.usd(500)}, rounded down, so it either stays put or jumps. The age 50 catch-up, ${K.usd(L.iraCatchUp)} in 2026, has been indexed since 2024 under SECURE 2.0, in steps of ${K.usd(100)}. The Roth income bands for 2027 are not published either. Nothing is lost by waiting: a contribution for 2026 can still be made until April 15, 2027, at the 2026 limit of ${K.usd(L.ira)}, or ${K.usd(L.ira + L.iraCatchUp)} from age 50, and with the 2026 Roth bands of ${K.usd(S[0])} to ${K.usd(S[1])} single and ${K.usd(J[0])} to ${K.usd(J[1])} joint.`,
+    : `The 2027 IRA contribution limit has not been announced. The IRS sets it in the autumn notice on retirement plan amounts, expected ${expected}; the 2026 notice came on November 13, 2025. Two rules decide how far it can move. The base limit, ${K.usd(L.ira)} in 2026, is indexed in steps of ${K.usd(500)}, rounded down, so it either stays put or jumps. The age 50 catch-up, ${K.usd(L.iraCatchUp)} in 2026, has been indexed since 2024 under SECURE 2.0, in steps of ${K.usd(100)}. Applied to the inflation index up to August 2026, the two formulas give our estimate of ${K.usd(E.ira.value)} and ${K.usd(E.iraCatchUp.value)} for 2027, the same as 2026, but only the IRS notice makes a figure official. The Roth income bands for 2027 are not published either. Nothing is lost by waiting: a contribution for 2026 can still be made until April 15, 2027, at the 2026 limit of ${K.usd(L.ira)}, or ${K.usd(L.ira + L.iraCatchUp)} from age 50, and with the 2026 Roth bands of ${K.usd(S[0])} to ${K.usd(S[1])} single and ${K.usd(J[0])} to ${K.usd(J[1])} joint.`,
   body: (h) => `
 <h2>${ok ? 'The 2027 IRA amounts' : 'What is published and what is not'}</h2>
 ${h.table(['Amount', '2026', '2027'], [
@@ -47,7 +49,14 @@ ${h.table(['Amount', '2026', '2027'], [
 ], ok ? '2026: Notice 2025-67. 2027: the IRS notice on 2027 amounts.' : `2026: Notice 2025-67. 2027: expected ${expected}.`, ['l', 'r', 'r'])}
 <p>${ok
     ? `The 2027 base limit is ${K.usd(ira27)}${ira27 > L.ira ? `, up ${K.usd(ira27 - L.ira)} from 2026` : ', unchanged from 2026'}. The figures come from the IRS notice, read on irs.gov on the day of publication. They apply to contributions made for 2027, from January 1, 2027 until the April 2028 deadline, while any contribution designated for 2026 keeps the 2026 amounts. An automatic monthly deposit set during 2026 does not adjust on its own: to reach the new 2027 limit, raise it with the custodian or add the difference in one deposit later. The calculator below shows your own 2027 figure from your year of birth.`
-    : `Only one line of the table is known for 2027: the married filing separately band, which the code fixes at ${K.usd(L.rothPhase.mfs[0])} to ${K.usd(L.rothPhase.mfs[1])} and never indexes. Everything else waits for the notice. A page that shows a 2027 IRA limit now is printing its own guess, and some still show ${K.usd(K.P.previous.ira)}, the 2025 amount, as though it were the current one.`}</p>
+    : `Only one line of the table is known for 2027: the married filing separately band, which the code fixes at ${K.usd(L.rothPhase.mfs[0])} to ${K.usd(L.rothPhase.mfs[1])} and never indexes. Everything else waits for the notice. A page that shows a 2027 IRA limit now is printing an estimate, like the one below, and some still show ${K.usd(K.P.previous.ira)}, the 2025 amount, as though it were the current one.`}</p>
+${ok ? '' : `<h2>Our estimate: why ${K.usd(E.ira.value)} is the likely figure</h2>
+<p>Since 2018 the IRA limit has been indexed with the chained consumer price index (C-CPI-U), averaged over the twelve months to August 31 of the year before, spliced onto the older CPI-U for the years before 2017. The last month needed, August 2026, is published, so the formula can be run now (${h.src('bls_cpi_data', 'BLS indexes')}).</p>
+${h.table(['Amount', '2026 (IRS)', 'Formula before rounding', '2027 estimate, not IRS'], [
+  ['IRA limit, rounded down to $500', K.usd(L.ira), K.usd(E.ira.raw), K.usd(E.ira.value)],
+  ['Catch-up from age 50, rounded down to $100', K.usd(L.iraCatchUp), K.usd(E.iraCatchUp.raw), K.usd(E.iraCatchUp.value)],
+], `Our calculation of ${K.day(K.EST.computedAt)}. Estimates only, replaced by the IRS notice ${expected}.`, ['l', 'r', 'r', 'r'])}
+<p>The base limit lands ${K.usd(E.ira.margin)} above ${K.usd(E.ira.value)} and ${K.usd(E.ira.value + E.ira.step - E.ira.raw)} below the next step, so it would take a large error in our inputs for the 2027 figure to differ. The catch-up formula gives ${K.usd(E.iraCatchUp.raw)}, short of the next ${K.usd(E.iraCatchUp.step)} step. Run on earlier years, the same method returns the official ${K.usd(H.ira[2])} for 2025 and ${K.usd(H.ira[3])} for 2026, and the catch-up of ${K.usd(H.iraCatchUp[2])} then ${K.usd(H.iraCatchUp[3])}. One input is incomplete: the Bureau of Labor Statistics published no index for October 2025, so the 2026 average rests on eleven months.</p>`}
 <h2>The ${K.usd(500)} step of the base limit</h2>
 <p>Section 219(b)(5)(C) indexes the IRA limit to inflation, starting from the ${K.usd(5000)} that applied in 2008, with each result rounded down to the nearest multiple of ${K.usd(500)}. Two consequences follow. The limit never rises by an odd amount, and it can stand still for a year or two while inflation builds up below the next step. That is what happened between ${rows[1].y} and ${rows[2].y}, when it stayed at ${K.usd(rows[1].ira)}, before moving to ${K.usd(rows[3].ira)} for ${rows[3].y}.</p>
 ${h.table(['Year', 'IRA limit', 'Catch-up at 50', 'Total at 50+'], rows.map((r) => [String(r.y), K.usd(r.ira), K.usd(r.cu), K.usd(r.ira + r.cu)]), 'IRS figures; the 2027 row is added the day the notice is out.', ['l', 'r', 'r', 'r'])}
@@ -65,6 +74,7 @@ ${h.mini('y2027', { t: 'Your 2027 IRA limit, or its status', p: ['by'], d: { k: 
 <p>If you have not yet used your 2026 room, that is the move with no unknowns left. For 2027, a monthly automatic deposit can be set at the 2026 rate and raised once the notice is out; you can catch up the difference in a single deposit later in the year or before April 2028. Couples with one earner can fund a ${h.a('spousal-ira', 'spousal IRA')} for each spouse for both years. The 2027 figures for workplace plans arrive in the same notice (${h.a('401k-limits-2027', '401(k) limits 2027')}), while the ${h.a('hsa-limits-2027', '2027 HSA limits')} are already final.</p>
 `,
   faqs: [
+    ...(ok ? [] : [{ q: 'Is the IRA contribution limit going up in 2027?', a: `Probably not, by our estimate. The indexing formula on the chained CPI to August 2026 gives ${K.usd(E.ira.raw)}, which rounds down to ${K.usd(E.ira.value)}, the 2026 limit, and the catch-up formula gives ${K.usd(E.iraCatchUp.value)}. This is our calculation, not an IRS figure; the IRS notice is expected ${expected}.` }]),
     { q: 'Can I still make a 2026 Roth IRA contribution in early 2027?', a: `Yes, until April 15, 2027. Tell the custodian the deposit is for 2026. The 2026 rules apply: ${K.usd(L.ira)}, or ${K.usd(L.ira + L.iraCatchUp)} if you were 50 by December 31, 2026, reduced by the 2026 Roth bands on your 2026 modified AGI. A filing extension does not move this deadline.` },
     { q: `Why does the IRA limit move by ${K.usd(500)} while the IRA catch-up moves by ${K.usd(100)}?`, a: `The code rounds each one to a different step. The base limit of section 219(b)(5)(A) is indexed in multiples of ${K.usd(500)}, rounded down. The catch-up was a fixed amount until SECURE 2.0 indexed it for years after 2023, in multiples of ${K.usd(100)}. A smaller step means smaller but more frequent changes.` },
     { q: 'I turn 50 in 2027: when can I start adding the IRA catch-up?', a: `From January 1, 2027, for your 2027 contribution, because the test is the age you reach by December 31 of the tax year. For 2026 you were still 49, so a 2026 contribution made in early 2027 stays at ${K.usd(L.ira)} without the catch-up. The 2027 catch-up amount is ${ok ? showN('iraCatchUp') : 'not announced yet'}.` },
@@ -73,5 +83,5 @@ ${h.mini('y2027', { t: 'Your 2027 IRA limit, or its status', p: ['by'], d: { k: 
   tool: 'y2027',
   toolArg: { k: 'ira', by: 1977 },
   related: ['ira-contribution-limits', 'roth-ira-income-limits', '401k-limits-2027', 'spousal-ira', '401k-limits-by-year'],
-  sources: ['notice_2025_67', 'ir_2025_111', 'irs_cola', 'pub590a'],
+  sources: ['notice_2025_67', 'ir_2025_111', 'irs_cola', 'pub590a', 'bls_cpi_data'],
 });
