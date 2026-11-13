@@ -40,7 +40,7 @@ ${h.table(['Amount', '2026', '2027', 'Change'], [
 <p>The family limit rises by ${K.usd(N.hsaFamily - L.hsaFamily)}, the self-only limit by ${K.usd(N.hsaSelf - L.hsaSelf)}, which is about ${K.dec((N.hsaSelf / L.hsaSelf - 1) * 100, 1)} %. The figures come from section 3.01 of ${h.src('rp_2026_24', 'Rev. Proc. 2026-24')}, the HSA-only revenue procedure the IRS releases each spring.</p>
 <h2>Why the HSA figures come out first</h2>
 <p>Section 223(g) of the code requires the IRS to publish the next year's HSA amounts by June 1, using inflation data through March. The 401(k), IRA and catch-up amounts for 2027 depend on data through September and arrive in an IRS notice ${plansOut ? 'that is now out' : `expected in ${N.expected}; they are not announced yet`}. The health FSA cap for 2027 plan years is ${fsa27}. This site does not show projections for any of them: see ${h.a('401k-limits-2027', '401(k) limits 2027')} and ${h.a('ira-limits-2027', 'IRA limits 2027')} for the status.</p>
-<h2>Your 2027 limit</h2>
+<h2>Your 2027 HSA contribution limit</h2>
 <p>The rules for using these amounts do not change. Your limit is still earned month by month, one twelfth for each month you are eligible on the 1st, and the catch-up follows the same proration. A 40-year-old who starts an HDHP on April 1, 2027 has nine eligible months and ${K.usd(nine.total)} of room, unless the last-month rule is used. Employer deposits still count toward the same ceiling. The detailed rules, including Medicare and couples, are on ${h.a('hsa-contribution-limits', 'HSA contribution limits 2026')}.</p>
 ${h.mini('hsa', { t: 'Your 2027 limit for the months you will be covered', p: ['cov', 'm'], d: { y: '2027', cov: 'self', m: 9, by: 1987 } })}
 <h2>What changes for open enrollment</h2>

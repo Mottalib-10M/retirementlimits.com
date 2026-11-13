@@ -18,10 +18,10 @@ export default defineGuide({
   title: 'Qualified Charitable Distribution 2026: $111,000 QCD Limit',
   description: `Qualified charitable distribution 2026: from age 70½, send up to ${K.usd(cap)} from an IRA straight to a charity. It counts toward the RMD and is not taxed.`,
   h1: 'Qualified charitable distribution: the 2026 limit and how it meets your RMD',
-  intro: 'Enter this year’s RMD and the amount you plan to give from the IRA. The calculator shows how much of the RMD the gift covers and what is left to report as income.',
+  intro: 'Enter this year’s RMD and the amount you plan to give from the IRA as a qualified charitable distribution. The calculator shows how much of the RMD the gift covers and what is left to report as income.',
   resume: `A qualified charitable distribution (QCD) is a payment made directly from a traditional IRA to an eligible charity by an owner or beneficiary aged 70½ or older. Up to ${K.usd(cap)} per person in 2026 is excluded from taxable income, up from ${K.usd(PR.qcd)} in 2025 (Notice 2025-67), and the amount counts toward the year's required minimum distribution. The QCD age is still 70½, so it starts before RMDs do, at 73 or 75. Because the money never enters adjusted gross income, a QCD can be worth more than a deduction: it helps people who take the standard deduction, and it keeps AGI lower for the taxation of Social Security benefits and for Medicare premiums. An owner with an RMD of ${K.usd(24000)} who sends ${K.usd(10000)} to charity through a QCD reports only ${K.usd(q.taxableRmd)} of the RMD as income. QCDs are not allowed from a 401(k).`,
   body: (h) => `
-<h2>The rules in one table</h2>
+<h2>Qualified charitable distribution rules in one table</h2>
 ${h.table(['Rule', '2026'], [
   ['Minimum age on the date of the gift', '70½'],
   ['Yearly exclusion per person', K.usd(cap)],

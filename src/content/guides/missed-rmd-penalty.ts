@@ -17,10 +17,10 @@ export default defineGuide({
   title: 'Missed RMD Penalty 2026: 25 % Excise Tax, 10 % if Corrected',
   description: `Missed RMD penalty 2026: an excise tax of ${full} of the amount not taken, cut to ${low} if you take it within the correction window. Form 5329 and the waiver.`,
   h1: 'Missed RMD penalty: what it costs and how to reduce it',
-  intro: 'Enter the RMD you had to take and what you actually took. The calculator shows the excise tax at the full rate, at the reduced rate once the shortfall is corrected, and the difference.',
+  intro: 'Enter the RMD you had to take and what you actually took. The calculator shows the penalty, an excise tax, at the full rate, at the reduced rate once the shortfall is corrected, and the difference.',
   resume: `If you take less than your required minimum distribution for a year, the shortfall is subject to an excise tax of ${full}, reported on Form 5329. SECURE 2.0 cut the rate from 50 % for tax years beginning in 2023, and added a lower rate of ${low} when you take the missing amount and file a return reflecting the tax within the correction window, which runs at most to the end of the second year after the year of the shortfall. You can also ask the IRS to waive the tax entirely if the shortfall came from a reasonable error and you are fixing it, by attaching an explanation to Form 5329. Example: an RMD of ${K.usd(18000)} for 2025 of which only ${K.usd(6000)} was taken leaves ${K.usd(e.short)} short. Left alone, the tax is ${K.usd(e.tax)}; corrected in time it is ${K.usd(c.tax)}, and with an accepted waiver it is zero.`,
   body: (h) => `
-<h2>The rates since 2023</h2>
+<h2>The missed RMD penalty rates since 2023</h2>
 ${h.table(['Situation', 'Excise tax on the shortfall', `On a ${K.usd(old)} shortfall`], [
   ['Shortfall not corrected', full, K.usd(e.tax)],
   ['Taken and reported within the correction window', low, K.usd(c.tax)],

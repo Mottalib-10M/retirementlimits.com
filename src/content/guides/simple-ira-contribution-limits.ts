@@ -26,7 +26,7 @@ export default defineGuide({
   intro: `A SIMPLE IRA has a lower deferral limit than a 401(k), and since 2024 it has two of them depending on the size of the employer. The calculator picks the right one, adds your catch-up and shows what the employer must put in.`,
   resume: `For 2026 the standard SIMPLE IRA deferral limit is ${K.usd(L.simple)}. A higher limit of ${K.usd(L.simpleApplicable)}, 110 % of the old figure indexed, applies automatically at employers with 25 or fewer employees, and at employers with 26 to 100 employees that choose it and pay a higher employer contribution. Catch-ups come in three sizes: ${K.usd(L.simpleCatchUp)} from the year you turn 50 in a standard plan, ${K.usd(L.simpleCatchUpApplicable)} in a plan using the higher limit, and ${K.usd(L.simpleCatchUp6063)} in any SIMPLE plan for the years you turn 60 to 63. On top of that the employer adds a 3 % match or 2 % of pay for everyone eligible. An office manager born in 1970 earning ${K.usd(70000)} at a 12-person practice can defer ${K.usd(small.total)} and receive a match of ${K.usd(match3)}. SIMPLE plans are outside the Roth catch-up rule, so her catch-up can stay pre-tax whatever her pay.`,
   body: (h) => `
-<h2>The 2026 SIMPLE limits in one table</h2>
+<h2>The 2026 SIMPLE IRA limits in one table</h2>
 <p>SECURE 2.0 split the SIMPLE limit in two from 2024. Notice 2025-67 sets the 2026 amounts: ${K.usd(L.simple)} under section 408(p)(2)(E)(i)(III), up from ${K.usd(PR.simple)}, and ${K.usd(L.simpleApplicable)} under the "certain accounts or plans" wording of (I) and (II) (${h.src('notice_2025_67', 'Notice 2025-67')}).</p>
 ${h.table(['Age on December 31, 2026', 'Standard plan', 'Plan with the higher limit'], [
   ['Under 50', K.usd(L.simple), K.usd(L.simpleApplicable)],

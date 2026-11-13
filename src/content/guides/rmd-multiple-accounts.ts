@@ -17,10 +17,10 @@ export default defineGuide({
   title: 'RMD Multiple Accounts 2026: Which Ones You Can Combine',
   description: 'RMD multiple accounts 2026: IRA RMDs can be added up and taken from any IRA, 403(b)s among themselves, but each 401(k) pays its own. See your total by account.',
   h1: 'RMD with several accounts: what can be combined',
-  intro: 'Enter two IRA balances, an old 401(k) and your age. The calculator shows the IRA total you can take from either IRA, and the 401(k) amount that must come from the plan itself.',
+  intro: 'For an RMD from multiple accounts, enter two IRA balances, an old 401(k) and your age. The calculator shows the IRA total you can take from either IRA, and the 401(k) amount that must come from the plan itself.',
   resume: `When you own several retirement accounts, each one has its own required minimum distribution, computed on its own December 31 balance with the same life expectancy factor. What differs is where the money may come from. RMDs of traditional IRAs, including SEP and SIMPLE IRAs, can be added together and taken from any one or several of your IRAs. RMDs of 403(b) contracts can be combined the same way, but only among 403(b)s. Each 401(k), 457(b) or other employer plan must pay its own RMD; an IRA withdrawal never satisfies it. Inherited accounts are kept apart from your own, and grouped only with accounts inherited from the same person. An owner turning 76 in 2026, with ${K.usd(300000)} and ${K.usd(120000)} in two IRAs and ${K.usd(250000)} in an old 401(k), divides each balance by ${fx(f)}: ${K.usd(i1 + i2)} to take from the IRAs in any mix, and ${K.usd(k1)} from the 401(k).`,
   body: (h) => `
-<h2>The aggregation rules</h2>
+<h2>The aggregation rules for RMDs across multiple accounts</h2>
 ${h.table(['Accounts', 'Combine the RMDs?', 'Where the money comes from'], [
   ['Your traditional, rollover, SEP and SIMPLE IRAs', 'yes', 'any one or more of these IRAs'],
   ['Your 403(b) contracts', 'yes, among 403(b)s only', 'any one or more of your 403(b)s'],

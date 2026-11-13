@@ -51,7 +51,7 @@ ${h.mini('rothcatch', { t: 'Is your catch-up Roth only?', p: ['prior'], d: { by:
 <h2>What it does to take home pay</h2>
 <p>A Roth deferral is taxed in the year it is made. Moving ${K.usd(hi.catchUp)} from pre-tax to Roth adds the same amount to your taxable wages in box 1. In the 24 % federal bracket that is about ${K.usd(taxNow)} more income tax for 2026, or ${K.usd(taxNow / periods)} a paycheck if withholding spreads it over 26 pay dates, plus state tax where it applies. At 62, with the larger ${K.usd(sup.catchUp)} catch-up, the extra federal tax is about ${K.usd(taxSup)}. Social Security and Medicare taxes do not change, because they were always due on deferrals. The money later comes out tax free if the Roth account is at least five years old and you are 59½ or older.</p>
 ${h.mini('rothcatch', { t: 'The same test at 60 to 63', p: ['by'], d: { prior: 165000, plan: '401k' } })}
-<h2>Planning around the rule</h2>
+<h2>Planning around the Roth catch-up rule</h2>
 <p>For many savers near retirement the change is less costly than it looks. Roth money has no required distributions while you are alive and is not counted in income when it comes out, which can help with Medicare premiums and the taxation of Social Security later. Those who want the deduction back can still defer the full base amount pre-tax, or use an HSA or a traditional IRA for pre-tax room. The catch-up amounts themselves are on the ${h.a('catch-up-contributions', 'catch-up page')}, and the extra tier for ages 60 to 63 on its ${h.a('super-catch-up-60-63', 'own page')}. Notice 2025-67 gives the ${K.usd(T)} figure (${h.src('notice_2025_67', 'Notice 2025-67')}).</p>
 `,
   faqs: [

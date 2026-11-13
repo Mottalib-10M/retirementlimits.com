@@ -23,10 +23,10 @@ export default defineGuide({
   title: `401(k) Limits by Year: ${first} to 2026 IRS Table and Changes`,
   description: `401(k) limits by year, ${first} to 2026: deferral from ${K.usd(H.deferral[0])} to ${K.usd(L.deferral)}, catch-up, 415(c), IRA, SIMPLE, HCE and wage base, with each yearly change shown.`,
   h1: '401(k) limits by year: 2023 to 2026',
-  intro: `The IRS resets the retirement plan limits every November for the next year. This table keeps four years side by side, read from the IRS cost of living page, so you can check any figure you see quoted.`,
+  intro: `The IRS resets the 401(k) and other retirement plan limits every November for the next year. This table keeps four years side by side, read from the IRS cost of living page, so you can check any figure you see quoted.`,
   resume: `The 401(k) employee deferral limit was ${K.usd(H.deferral[0])} in ${first}, ${K.usd(H.deferral[1])} in ${Y[1]}, ${K.usd(H.deferral[2])} in ${Y[2]} and ${K.usd(H.deferral[n])} in ${last}: up ${K.usd(up(H.deferral))}, or ${K.pct(rise(H.deferral), 1)}, over the period. The age 50 catch-up stayed at ${K.usd(H.catchUp50[0])} for three years before moving to ${K.usd(H.catchUp50[n])} in ${last}, and the total additions limit of section 415(c) went from ${K.usd(H.total415c[0])} to ${K.usd(H.total415c[n])}. A saver aged 55 could therefore defer ${K.usd(at50(0))} in ${first} and ${K.usd(at50(n))} in ${last}. The amounts move in fixed steps, $500 for deferrals and catch-ups, which is why some years show no change at all. The IRA limit went from ${K.usd(H.ira[0])} to ${K.usd(H.ira[n])} and its catch-up moved for the first time, to ${K.usd(H.iraCatchUp[n])}, while the compensation cap climbed from ${K.usd(H.compensationCap[0])} to ${K.usd(H.compensationCap[n])}. The 2027 figures are ${y27}; the IRS publishes them ${String(K.L27.expected)}.`,
   body: (h) => `
-<h2>The table, ${first} to ${last}</h2>
+<h2>The 401(k) limits table, ${first} to ${last}</h2>
 ${h.table(['Limit', ...Y.map(String)], [
   ['401(k), 403(b), 457(b) deferral', ...H.deferral.map(K.usd)],
   ['Catch-up at 50', ...H.catchUp50.map(K.usd)],

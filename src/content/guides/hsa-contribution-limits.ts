@@ -42,7 +42,7 @@ ${h.table(['Item', 'Self-only coverage', 'Family coverage'], [
 ${h.mini('hsa', { t: 'Your limit if you joined the plan during the year', p: ['m', 'lm'], d: { cov: 'self', m: 6, by: 1986 } })}
 <h2>The last-month rule and its testing period</h2>
 <p>If you are eligible on December 1, 2026, you may treat yourself as eligible for the whole year and contribute the full amount: ${K.usd(julyLm.total)} instead of ${K.usd(july.total)} for the July case. The price is the testing period: you must stay eligible from December 1, 2026 through December 31, 2027. If you drop the HDHP, take a job with a regular health plan or enroll in Medicare before then, the extra amount you put in thanks to the rule is added to your income for the year you lose eligibility, plus an additional tax of 10 %. Death or disability ends the testing period without that cost.</p>
-<h2>Employer money counts</h2>
+<h2>Employer money counts toward the HSA contribution limit</h2>
 <p>Unlike a 401(k), an HSA has one limit for everybody's money. Employer contributions, including pre-tax amounts you elect through a cafeteria plan, use the same ${K.usd(L.hsaSelf)} or ${K.usd(L.hsaFamily)}. If your employer deposits ${K.usd(1000)} into a self-only account, you have ${K.usd(er.you)} left. Payroll contributions also avoid FICA tax, which a deposit you deduct on your return does not; the limit is the same either way.</p>
 ${h.mini('hsa', { t: 'What is left after your employer’s deposit', p: ['er'], d: { cov: 'family', er: 1500, by: 1980 } })}
 <h2>Age 55 and Medicare</h2>

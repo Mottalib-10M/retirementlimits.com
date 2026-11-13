@@ -26,8 +26,8 @@ export default defineGuide({
   card: 'Two separate limits, how they add up by age, and where they interact',
   title: 'Difference Between IRA and 401(k) Limits 2026, Side by Side',
   description: `Difference between IRA and 401(k) limits 2026: ${K.usd(L.deferral)} of 401(k) deferrals and ${K.usd(L.ira)} in IRAs, two caps that add up. See totals by age and the deduction catch.`,
-  h1: 'IRA vs 401(k) limits in 2026: two caps, one household',
-  intro: `A 401(k) and an IRA have separate contribution limits, so saving in one never uses up the other. Where they touch is the tax side: the workplace plan can limit the IRA deduction, and pre-tax deferrals change the income the Roth IRA test looks at.`,
+  h1: 'The difference between IRA and 401(k) limits in 2026: two caps, one household',
+  intro: `One difference between an IRA and a 401(k): they have separate contribution limits, so saving in one never uses up the other. Where they touch is the tax side: the workplace plan can limit the IRA deduction, and pre-tax deferrals change the income the Roth IRA test looks at.`,
   resume: `In 2026 the employee limit for a 401(k), 403(b) or governmental 457(b) is ${K.usd(L.deferral)}, plus ${K.usd(L.catchUp50)} from age 50 or ${K.usd(L.catchUp6063)} in the years you turn 60 to 63. The IRA limit is ${K.usd(L.ira)}, plus ${K.usd(L.iraCatchUp)} from 50, shared by traditional and Roth IRAs. The two are independent: a person aged 50 earning ${K.usd(85000)} can defer ${K.usd(w.total)} and still put ${K.usd(wi)} in an IRA, ${K.usd(w.total + wi)} in all. Employer money goes only into the 401(k), within a ${K.usd(L.total415c)} cap on total additions. What links the accounts is tax: being covered by the workplace plan phases out the traditional IRA deduction from ${K.usd(D.singleCovered[0])} of MAGI for a single filer, and the Roth IRA has an income test (${K.usd(R.single[0])} to ${K.usd(R.single[1])} single) that a 401(k), Roth or not, does not have.`,
   body: (h) => `
 <h2>The limits side by side</h2>
@@ -64,7 +64,7 @@ ${h.mini('deduct', { t: 'Covered by your 401(k): what stays deductible?', p: ['m
 <h2>Changing jobs, and couples with four limits</h2>
 <p>Someone who changes employers in the middle of 2026 has to watch the 401(k) side closely. Each payroll system only sees its own deferrals, so a person who deferred ${K.usd(15000)} at the first job and joins a plan at the second can defer only ${K.usd(L.deferral - 15000)} more before turning 50. A deferral above the yearly limit must be returned by April 15, 2027, or it is taxed twice. The IRA side is unaffected by the move: the same ${K.usd(L.ira)} stays available whatever happens at work, and an old 401(k) can be rolled into an IRA without using any of it.</p>
 <p>A married couple where both spouses work has four separate limits: two deferral limits and two IRA limits, each tested on the owner's own age. A spouse who has no plan at work keeps a fully deductible IRA up to a much higher joint income, ${K.usd(D.spouseCovered[0])}, than the spouse who has one. When only one spouse earns, the other can still fund an IRA on that pay through the ${h.a('spousal-ira', 'spousal IRA')} rule, but cannot defer into the employer's 401(k).</p>
-<h2>Other differences that are not about the amount</h2>
+<h2>Other differences between an IRA and a 401(k), beyond the amount</h2>
 <p>A 401(k) deferral comes out of payroll and stops on December 31; an IRA can be funded in a lump sum until the April deadline. A 401(k) may allow loans; an IRA does not. Required distributions apply to traditional accounts of both types, while Roth IRAs and, since 2024, Roth 401(k)s have none during the owner's lifetime. Self-employed people without employees can open a ${h.a('solo-401k-contribution-limits', 'solo 401(k)')} and still use an IRA on top.</p>
 `,
   faqs: [

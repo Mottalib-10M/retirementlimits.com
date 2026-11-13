@@ -22,10 +22,10 @@ export default defineGuide({
   title: 'Roth IRA Income Limits 2026: Your Reduced Contribution',
   description: `Roth IRA income limits 2026: ${K.usd(S[0])} to ${K.usd(S[1])} single, ${K.usd(J[0])} to ${K.usd(J[1])} joint. Type your MAGI to get the reduced amount from the IRS worksheet 2-2.`,
   h1: 'Roth IRA income limits 2026: how much can you still put in?',
-  intro: `Inside the phase-out band a Roth IRA contribution is not refused, it is reduced. The calculator runs Worksheet 2-2 of Publication 590-A on your modified AGI and gives the amount, rounded the way the IRS rounds it.`,
+  intro: `Inside the phase-out band set by the income limits, a Roth IRA contribution is not refused, it is reduced. The calculator runs Worksheet 2-2 of Publication 590-A on your modified AGI and gives the amount, rounded the way the IRS rounds it.`,
   resume: `For 2026 a single filer or head of household can contribute the full ${K.usd(L.ira)} to a Roth IRA (${K.usd(L.ira + L.iraCatchUp)} at 50 or over) with a modified AGI below ${K.usd(S[0])}; the amount shrinks between ${K.usd(S[0])} and ${K.usd(S[1])} and is zero from ${K.usd(S[1])}. On a joint return the band runs from ${K.usd(J[0])} to ${K.usd(J[1])}, and married filing separately after living together it is $0 to $10,000 (Notice 2025-67). Inside the band the IRS does not let you guess: Publication 590-A Worksheet 2-2 takes the share of the band your income has crossed, removes that share of your limit, rounds the result up to the next $10 and keeps $200 as a floor. A single filer aged 40 with ${K.usd(160000)} of MAGI can therefore put ${K.usd(a.reduced)} in a Roth IRA, and ${K.usd(b.reduced)} at 56. The calculator above does the same steps on your figures.`,
   body: (h) => `
-<h2>The 2026 phase-out bands</h2>
+<h2>The 2026 Roth IRA income limits and phase-out bands</h2>
 ${h.table(['Filing status', 'Full contribution below', 'Nothing from', 'Each $1,000 above the start removes'], [
   ['Single, head of household, separated all year', K.usd(S[0]), K.usd(S[1]), K.usd(per1k(S, L.ira))],
   ['Married filing jointly, qualifying surviving spouse', K.usd(J[0]), K.usd(J[1]), K.usd(per1k(J, L.ira))],

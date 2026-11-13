@@ -24,7 +24,7 @@ export default defineGuide({
   title: 'IRA Contribution Limits 2026: The Cap, Catch-Up and Deadline',
   description: `IRA contribution limits 2026: ${K.usd(L.ira)}, or ${K.usd(full)} at 50 and over, shared by traditional and Roth IRAs and never above your taxable pay. Deadline April 15, 2027.`,
   h1: 'IRA contribution limits 2026: how much you can put in',
-  intro: `One yearly cap covers every IRA you own, traditional and Roth together. The calculator checks it against your age on December 31 and against the pay that actually counts as compensation.`,
+  intro: `One yearly contribution limit covers every IRA you own, traditional and Roth together. The calculator checks it against your age on December 31 and against the pay that actually counts as compensation.`,
   resume: `For 2026 you can contribute up to ${K.usd(L.ira)} to your IRAs, up from ${K.usd(PR.ira)} in 2025, and ${K.usd(full)} if you are 50 or older by December 31, 2026, because the catch-up rose to ${K.usd(L.iraCatchUp)} (Notice 2025-67). That figure is one ceiling for all your traditional and Roth IRAs combined, not a ceiling per account. It is also capped by taxable compensation: wages, tips, commissions and net self-employment earnings count, while interest, dividends, rent, pensions and Social Security do not. Someone born in 1975 earning ${K.usd(60000)} can put in ${K.usd(a.limit)}; a student with ${K.usd(4800)} of summer pay is limited to ${K.usd(student.limit)}. Contributions for 2026 are accepted until April 15, 2027, there is no upper age for a traditional IRA since 2020, and an excess left in the account costs 6 % a year.`,
   body: (h) => `
 <h2>The 2026 IRA limit and how it moved</h2>

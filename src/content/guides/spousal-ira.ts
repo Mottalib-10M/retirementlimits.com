@@ -26,13 +26,13 @@ export default defineGuide({
   title: 'Spousal IRA Contribution Limit 2026: Two IRAs on One Income',
   description: `Spousal IRA contribution limit 2026: a spouse with no pay can put ${K.usd(L.ira)} (${K.usd(full)} at 50) in an IRA on a joint return, if the couple's pay covers both of them.`,
   h1: 'Spousal IRA contribution limit 2026: an IRA for the spouse without pay',
-  intro: `A spouse who stays home or earns very little can still have a full IRA, funded on the working spouse's compensation. The calculator splits the couple's pay between the two accounts the way Publication 590-A does.`,
+  intro: `A spouse who stays home or earns very little can still make a full IRA contribution, funded on the working spouse's compensation. The calculator splits the couple's pay between the two accounts the way Publication 590-A does.`,
   resume: `For 2026 a married couple filing jointly can contribute up to ${K.usd(L.ira)} to an IRA for each spouse, or ${K.usd(full)} for a spouse who is 50 or older by December 31, even if one of them has no earnings at all. The only condition on income is that the two contributions together do not exceed the couple's combined taxable compensation. A household with one salary of ${K.usd(80000)}, spouses aged 54 and 48, can therefore put ${K.usd(c1.a)} and ${K.usd(c1.b)} in two IRAs, ${K.usd(c1.total)} in all. With only ${K.usd(12000)} of pay the second IRA is capped at ${K.usd(c2.b)}. Each account belongs to one spouse, can be traditional or Roth, and follows the usual rules: for a Roth, the joint phase-out from ${K.usd(J[0])} to ${K.usd(J[1])} of household MAGI; for a deduction, the ${K.usd(D.spouseCovered[0])} to ${K.usd(D.spouseCovered[1])} range when only the working spouse has a plan.`,
   body: (h) => `
 <h2>There is no "spousal IRA" account</h2>
 <p>The name describes a rule, not a product. The non-earning spouse opens an ordinary traditional or Roth IRA in his or her own name, and the custodian handles it like any other. What makes it spousal is only the source of the compensation that supports the contribution: section 219(c) lets a spouse filing jointly count the other spouse's taxable compensation as if it were his or her own, after subtracting what the other spouse contributes to his or her own IRAs (${h.src('pub590a', 'Publication 590-A, Kay Bailey Hutchison Spousal IRA limit')}).</p>
 <p>The money in the account belongs to the spouse whose name is on it, including after a divorce, unless a court orders a transfer. Beneficiary designations and investment choices are that spouse's too.</p>
-<h2>The conditions</h2>
+<h2>The conditions for a spousal IRA contribution</h2>
 <ul>
 <li><strong>A joint return.</strong> Married filing separately does not allow the transfer of compensation; each spouse is limited to his or her own pay.</li>
 <li><strong>Enough combined pay.</strong> The two IRA contributions together cannot exceed the taxable compensation shown on the joint return: wages, self-employment earnings and the other items listed on the ${h.a('ira-contribution-limits', 'IRA contribution limits page')}.</li>

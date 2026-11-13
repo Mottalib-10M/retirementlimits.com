@@ -24,10 +24,10 @@ export default defineGuide({
   title: 'SEP IRA Contribution Limits 2026: 25 % of Pay, 20 % If Self',
   description: `SEP IRA contribution limits 2026: 25 % of pay or 20 % of net self-employment earnings, up to ${K.usd(L.total415c)}, pay counted to ${K.usd(L.compensationCap)}. Enter yours for the amount.`,
   h1: 'SEP IRA contribution limits 2026 for owners and their employees',
-  intro: `A SEP IRA is funded by the employer alone, as a share of each eligible person's pay. The calculator applies 25 % to an employee's wages or the reduced 20 % rate to a self-employed owner's net earnings, then the two caps.`,
+  intro: `A SEP IRA is funded by employer contributions alone, as a share of each eligible person's pay. The calculator applies 25 % to an employee's wages or the reduced 20 % rate to a self-employed owner's net earnings, then the two caps.`,
   resume: `For 2026 an employer can put into each eligible employee's SEP IRA up to 25 % of that person's pay, with no more than ${K.usd(L.total415c)} per person and pay counted only up to ${K.usd(L.compensationCap)}. For a sole proprietor or a partner the same plan gives an effective 20 %, because the base is net earnings from self-employment after half the self-employment tax and the rate is reduced to account for the contribution itself. An S corporation owner on a ${K.usd(150000)} salary can receive ${K.usd(emp150.amount)}; a sole proprietor with ${K.usd(150000)} of profit gets ${K.usd(self150.amount)}. There is no catch-up in a SEP, at any age. Anyone who received at least ${K.usd(L.sepMinComp)} in 2026 and meets the plan's age and service terms must be covered at the same rate as the owner. Contributions for 2026 can be made up to the due date of the employer's tax return, extensions included.`,
   body: (h) => `
-<h2>The two caps and the rate</h2>
+<h2>The two SEP IRA contribution limits and the rate</h2>
 <p>A simplified employee pension is a set of traditional IRAs, one per worker, into which only the employer pays. Section 402(h) limits the yearly contribution for each person to the lesser of 25 % of compensation and the section 415(c) dollar amount, ${K.usd(L.total415c)} for 2026. Compensation above ${K.usd(L.compensationCap)} is ignored, under section 408(k)(3)(C) (${h.src('notice_2025_67', 'Notice 2025-67')}).</p>
 ${h.table(['Who', 'Pay or profit', 'Base used', 'Rate', 'SEP contribution'], [
   ['Assistant on W-2', K.usd(40000), K.usd(asst.capped), K.pct(asst.rate, 0), K.usd(asst.amount)],

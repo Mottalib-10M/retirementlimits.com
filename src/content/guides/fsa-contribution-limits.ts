@@ -21,7 +21,7 @@ export default defineGuide({
   title: 'FSA Contribution Limits 2026: Health FSA Cap and Carryover',
   description: `FSA contribution limits 2026: ${K.usd(L.healthFsa)} per employee for a health FSA, with up to ${K.usd(L.healthFsaCarryover)} carried over if the plan allows it. See what you would keep or lose.`,
   h1: 'FSA contribution limits 2026: the health FSA cap and what carries over',
-  intro: `A health flexible spending account lets you set aside pay before tax for medical costs, up to a yearly cap per job. The calculator checks your election and shows how much of an unused balance a carryover plan lets you keep.`,
+  intro: `A health flexible spending account (FSA) lets you set aside pay before tax for medical costs, up to a yearly contribution limit per job. The calculator checks your election and shows how much of an unused balance a carryover plan lets you keep.`,
   resume: `For plan years beginning in 2026 you can elect up to ${K.usd(L.healthFsa)} of salary reductions to a health FSA (Rev. Proc. 2025-32, section 3.15). The cap applies per employee and per employer, so two working spouses can each elect ${K.usd(L.healthFsa)} through their own jobs, ${K.usd(L.healthFsa * 2)} for the household. What you do not spend is normally lost, with two possible relief rules, and a plan may offer one of them but not both: a carryover of up to ${K.usd(L.healthFsaCarryover)} into the next plan year, or a grace period of up to two and a half months to spend the balance. With a full ${K.usd(L.healthFsa)} election and ${K.usd(900)} left in December, a carryover plan saves ${K.usd(a.carry)} and ${K.usd(a.lost)} is forfeited. If you have an HSA, only a limited purpose FSA for dental and vision keeps you eligible. The 2027 cap is ${next}.`,
   body: (h) => `
 <h2>The 2026 health FSA figures</h2>
@@ -33,7 +33,7 @@ ${h.table(['Rule', 'Plan years beginning in 2026'], [
   ['Limit for plan years beginning in 2027', next],
 ], `Rev. Proc. 2025-32, section 3.15, read on ${K.day(K.P.retrieved_at)}.`, ['l', 'r'])}
 <p>The figure is a ceiling, not a default: employers can set a lower cap, and many do. The limit is tied to the plan year, which is not always the calendar year. A plan year starting July 1, 2026 uses the 2026 figure until June 30, 2027. The amount for 2027 plan years usually appears in the IRS inflation adjustments published in the fall; until then this page shows it as ${next}.</p>
-<h2>Per employee, per employer</h2>
+<h2>Per employee, per employer: how the FSA limit applies</h2>
 <p>The cap is set by section 125(i) and applies to what each employee elects under each employer's cafeteria plan (${h.src('pub15b', 'Publication 15-B')}). Two consequences follow. A married couple who both work can each elect ${K.usd(L.healthFsa)} at their own employer, and either FSA can reimburse costs for the whole family. And a person who works for two unrelated employers can, in principle, elect the full amount at each; employers under common control count as one.</p>
 <p>Employer money is treated differently from your own. Flex credits that the employer adds and that you cannot take as cash do not count toward the ${K.usd(L.healthFsa)} salary reduction limit, although plan rules often cap them. If you could have taken them as cash instead, they are treated as salary reductions and do count.</p>
 ${h.mini('fsa', { t: 'Is your election within the cap?', p: ['el'], d: { el: 4000, un: 0 } })}

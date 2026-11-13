@@ -28,7 +28,7 @@ export default defineGuide({
   intro: `Anyone with compensation may contribute to a traditional IRA, but a workplace retirement plan can take the deduction away. The calculator applies Worksheet 1-2 of Publication 590-A to your filing status, coverage and modified AGI.`,
   resume: `In 2026 a traditional IRA contribution of up to ${K.usd(L.ira)} (${K.usd(full)} at 50 or over) is fully deductible when neither you nor your spouse is covered by a workplace plan, at any income. If you are covered, the deduction phases out between ${K.usd(D.singleCovered[0])} and ${K.usd(D.singleCovered[1])} of modified AGI as a single filer or head of household, and between ${K.usd(D.jointCovered[0])} and ${K.usd(D.jointCovered[1])} on a joint return. If only your spouse is covered, your own range on a joint return is ${K.usd(D.spouseCovered[0])} to ${K.usd(D.spouseCovered[1])}; filing separately it is ${K.usd(D.mfsCovered[0])} to ${K.usd(D.mfsCovered[1])}. A covered single filer aged 40 with ${K.usd(86000)} of MAGI can deduct ${K.usd(s40.deductible)} of a full contribution and ${K.usd(s55.deductible)} at 55. What is not deductible can still go in as a nondeductible contribution, recorded on Form 8606.`,
   body: (h) => `
-<h2>The four deduction ranges for 2026</h2>
+<h2>The four traditional IRA deduction ranges for 2026</h2>
 ${h.table(['Your situation', 'Full deduction up to', 'No deduction from'], [
   ['Covered by a plan, single or head of household', K.usd(D.singleCovered[0]), K.usd(D.singleCovered[1])],
   ['Covered by a plan, married filing jointly', K.usd(D.jointCovered[0]), K.usd(D.jointCovered[1])],

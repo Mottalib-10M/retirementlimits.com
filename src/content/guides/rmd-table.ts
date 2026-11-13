@@ -22,7 +22,7 @@ export default defineGuide({
   title: 'RMD Table 2026: Uniform Lifetime Table, Ages 72 to 120',
   description: `RMD table 2026: the IRS Uniform Lifetime Table in full, from ${fx(K.uniform(72)!)} at 72 to ${fx(K.uniform(120)!)} at 120, with the factor for your own age and the RMD on any balance you type.`,
   h1: 'RMD table 2026: the Uniform Lifetime Table in full',
-  intro: 'Find your age, read the factor, divide your December 31 balance by it. The calculator does the division and shows the factors around your age.',
+  intro: 'Find your age in the RMD table, read the factor, divide your December 31 balance by it. The calculator does the division and shows the factors around your age.',
   resume: `The Uniform Lifetime Table is the table almost every IRA and 401(k) owner uses to compute a required minimum distribution. It is Table III in Appendix B of Publication 590-B and comes from 26 CFR 1.401(a)(9)-9(c), in force since 2022. Each age from 72 to 120 has a distribution period: ${K.dec(f73)} at 73, ${K.dec(f75)} at 75, ${K.dec(f85)} at 85, ${K.dec(f100)} at 100. For 2026 you read the factor at the age you reach on your 2026 birthday and divide the account balance of December 31, 2025 by it: ${K.usd(b)} at 75 means ${K.usd(b / f75)}. The table is the same for everyone, married or single, unless the sole beneficiary is a spouse more than 10 years younger, who brings in the joint table. Tables printed before 2022 give smaller factors and larger RMDs; they no longer apply.`,
   body: (h) => `
 <h2>Table III, ages 72 to 120</h2>
