@@ -69,5 +69,5 @@ ${h.mini('hsa', { t: 'Room left in 2027 after your employer’s deposit', p: ['e
   tool: 'hsa',
   toolArg: { y: '2027' },
   related: ['hsa-contribution-limits', 'fsa-contribution-limits', 'ira-limits-2027', '401k-limits-2027'],
-  sources: ['rp_2026_24', 'rp_2025_19', 'pub969'],
+  sources: ['rp_2026_24', 'rp_2026_35', 'notice_2026_66', 'rp_2025_19', 'pub969'],
 });

@@ -57,5 +57,5 @@ ${h.mini('super', { t: 'Total limit with the higher catch-up', p: ['pay'], d: { 
   tool: 'super',
   toolArg: { by: 1965, pay: 140000 },
   related: ['catch-up-contributions', 'roth-catch-up-rule', '401k-contribution-limits', 'simple-ira-contribution-limits'],
-  sources: ['notice_2025_67', 'ir_2025_111', 'ir_2025_91'],
+  sources: ['notice_2025_67', 'notice_2026_66', 'ir_2025_111', 'ir_2025_91'],
 });

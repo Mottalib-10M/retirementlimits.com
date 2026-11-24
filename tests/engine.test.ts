@@ -28,11 +28,18 @@ describe('2026 amounts (Notice 2025-67, Rev. Procs. 2025-19, 2025-32, 2026-24)',
     const y27 = P.limits['2027'];
     expect([y27.hsaSelf, y27.hsaFamily]).toEqual([4500, 9000]);
   });
-  it('2027 plan and IRA limits stay empty until announced', () => {
-    expect(announced('2027')).toBe(false);
+  it('2027 plan and IRA limits from IRS Notice 2026-66 (Nov. 12, 2026)', () => {
+    expect(announced('2027')).toBe(true);
     const l = lim('2027') as Record<string, unknown>;
-    for (const k of ['deferral', 'catchUp50', 'catchUp6063', 'ira', 'total415c']) expect(l[k], k).toBeNull();
-    expect(SPECS.y2027().run({ by: '1966', k: 'deferral' }).value).toMatch(/not announced/i);
+    expect(['deferral', 'catchUp50', 'catchUp6063', 'ira', 'iraCatchUp', 'total415c', 'compensationCap', 'gov457', 'simple', 'rothCatchUpWageThreshold'].map((k) => l[k]))
+      .toEqual([25500, 8500, 11750, 7500, 1100, 75000, 375000, 25500, 17500, 155000]);
+    expect(l.rothPhase).toEqual({ single: [158000, 173000], joint: [250000, 260000], mfs: [0, 10000] });
+    expect(l.deductPhase).toEqual({ singleCovered: [83000, 93000], jointCovered: [133000, 153000], spouseCovered: [250000, 260000], mfsCovered: [0, 10000] });
+    expect(l.healthFsa).toBe(3500);
+    // Our September 2026 estimate matched the notice on every amount.
+    const e = estimates2027();
+    expect([e.deferral.value, e.catchUp50.value, e.total415c.value, e.compensationCap.value, e.ira.value, e.iraCatchUp.value]).toEqual([l.deferral, l.catchUp50, l.total415c, l.compensationCap, l.ira, l.iraCatchUp]);
+    expect(SPECS.y2027().run({ by: '1966', k: 'deferral' }).value).not.toMatch(/not announced/i);
   });
 });
 

@@ -62,5 +62,5 @@ ${h.mini('fsa', { t: 'What a carryover plan lets you keep', p: ['un'], d: { el: 
   tool: 'fsa',
   toolArg: { el: L.healthFsa, un: 900 },
   related: ['dependent-care-fsa-limit', 'hsa-contribution-limits', 'hsa-limits-2027'],
-  sources: ['rp_2025_32', 'pub15b', 'pub969'],
+  sources: ['rp_2025_32', 'rp_2026_35', 'pub15b', 'pub969'],
 });

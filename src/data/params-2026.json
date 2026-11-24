@@ -81,22 +81,53 @@
       "wageBase": 184500
     },
     "2027": {
-      "announced": false,
-      "expected": "mid-November 2026",
-      "deferral": null,
-      "catchUp50": null,
-      "catchUp6063": null,
-      "rothCatchUpWageThreshold": null,
+      "announced": true,
+      "announcedOn": "2026-11-12",
+      "source": "notice_2026_66",
+      "deferral": 25500,
+      "catchUp50": 8500,
+      "catchUp6063": 11750,
+      "rothCatchUpWageThreshold": 155000,
       "rothCatchUpWageYear": 2026,
-      "total415c": null,
-      "compensationCap": null,
-      "gov457": null,
-      "simple": null,
-      "ira": null,
-      "iraCatchUp": null,
-      "rothPhase": null,
-      "deductPhase": null,
-      "healthFsa": null,
+      "total415c": 75000,
+      "compensationCap": 375000,
+      "gov457": 25500,
+      "simple": 17500,
+      "ira": 7500,
+      "iraCatchUp": 1100,
+      "rothPhase": {
+        "single": [
+          158000,
+          173000
+        ],
+        "joint": [
+          250000,
+          260000
+        ],
+        "mfs": [
+          0,
+          10000
+        ]
+      },
+      "deductPhase": {
+        "singleCovered": [
+          83000,
+          93000
+        ],
+        "jointCovered": [
+          133000,
+          153000
+        ],
+        "spouseCovered": [
+          250000,
+          260000
+        ],
+        "mfsCovered": [
+          0,
+          10000
+        ]
+      },
+      "healthFsa": 3500,
       "hsaSelf": 4500,
       "hsaFamily": 9000,
       "hsaCatchUp": 1000,
@@ -109,7 +140,23 @@
         "family": 17400
       },
       "dependentCareFsa": 7500,
-      "dependentCareFsaMfs": 3750
+      "dependentCareFsaMfs": 3750,
+      "expected": "November 12, 2026 (Notice 2026-66)",
+      "hce": 170000,
+      "keyEmployee": 245000,
+      "simpleApplicable": 19100,
+      "simpleCatchUp": 4000,
+      "simpleCatchUpApplicable": 3850,
+      "simpleCatchUp6063": 5250,
+      "sepMinComp": 800,
+      "saversCredit": {
+        "joint": 83000,
+        "head": 62250,
+        "single": 41500
+      },
+      "qcd": 114000,
+      "qcdSplit": 57000,
+      "healthFsaCarryover": 700
     }
   },
   "history": {
@@ -531,6 +578,24 @@
       "url": "https://www.govinfo.gov/content/pkg/USCODE-2023-title26/html/USCODE-2023-title26-subtitleA-chap1-subchapD-partI-subpartB-sec415.htm",
       "label": {
         "en": "26 U.S.C. 415(d), cost-of-living adjustments of plan limits (govinfo)"
+      }
+    },
+    "notice_2026_66": {
+      "url": "https://www.irs.gov/pub/irs-drop/n-26-66.pdf",
+      "label": {
+        "en": "IRS Notice 2026-66, 2027 amounts relating to retirement plans and IRAs (Nov. 12, 2026)"
+      }
+    },
+    "ir_2026_136": {
+      "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500",
+      "label": {
+        "en": "IRS news release IR-2026-136: 401(k) limit increases to $25,500 for 2027, IRA limit remains $7,500 (Nov. 12, 2026)"
+      }
+    },
+    "rp_2026_35": {
+      "url": "https://www.irs.gov/pub/irs-drop/rp-26-35.pdf",
+      "label": {
+        "en": "IRS Rev. Proc. 2026-35, 2027 inflation adjustments, health FSA limit section 3.16"
       }
     }
   }

@@ -65,7 +65,7 @@ ${h.table(['Limit', '2026 (IRS)', 'Formula before rounding', '2027 estimate, not
 <p>The cost-of-living adjustments of section 415(d) depend on the consumer price index up to the quarter ending September 30. The September index is published in October, so the IRS can only compute the next year's amounts after that, and it usually releases them in late October or in November. For 2026 the notice was dated November 13, 2025 (${h.src('notice_2025_67', 'Notice 2025-67')}), with a news release the same day (${h.src('ir_2025_111', 'IR-2025-111')}). The ${h.src('irs_cola', 'IRS table of COLA increases')} is updated at the same time. This page will show the 2027 figures from the day they are published.</p>
 <h2>How indexing and rounding work</h2>
 <p>Each limit starts from a base amount written in the code and grows with inflation, but it does not rise smoothly. The deferral limit is rounded down to a multiple of ${K.usd(500)}, as is the age 50 catch-up. The section 415(c) cap moves in ${K.usd(1000)} steps and the compensation cap in ${K.usd(5000)} steps, also rounded down. Rounding down means a year of moderate inflation can leave a limit unchanged, and the gap is caught up later in a single jump.</p>
-${h.table(['Year', 'Deferral', 'Catch-up at 50', '415(c) cap'], steps.map((s) => [String(s.y), K.usd(s.d), K.usd(s.c), K.usd(s.t)]), 'IRS figures for each year; the 2027 row is added when announced.', ['l', 'r', 'r', 'r'])}
+${h.table(['Year', 'Deferral', 'Catch-up at 50', '415(c) cap'], steps.map((s) => [String(s.y), K.usd(s.d), K.usd(s.c), K.usd(s.t)]), ok ? `IRS figures for each year; 2027 from Notice 2026-66: ${K.usd(d27)}, ${show('catchUp50')} and ${show('total415c')}.` : 'IRS figures for each year; the 2027 row is added when announced.', ['l', 'r', 'r', 'r'])}
 <p>The table shows the pattern. The deferral rose by ${K.usd(steps[1].d - steps[0].d)}, then ${K.usd(steps[2].d - steps[1].d)}, then ${K.usd(steps[3].d - steps[2].d)}; the age 50 catch-up stayed at ${K.usd(steps[0].c)} for three years before moving to ${K.usd(steps[3].c)}. The age 60 to 63 amount follows its own rule: it was set at 150 % of the regular catch-up for 2025 and is indexed after that, which is why it stayed at ${K.usd(L.catchUp6063)} for 2026. ${ok ? '' : `That is why an estimate stays an estimate: one that turns out ${K.usd(500)} too high would lead someone to over-defer and face an excess deferral to correct.`}</p>
 ${h.mini('y2027', { t: 'Your 2027 deferral, or its status, by birth year', p: ['by'], d: { k: 'deferral', by: 1965 } })}
 <h2>What is already settled for 2027</h2>
@@ -86,5 +86,5 @@ ${h.mini('y2027', { t: 'Your 2027 deferral, or its status, by birth year', p: ['
   tool: 'y2027',
   toolArg: { k: 'deferral', by: 1966 },
   related: ['401k-contribution-limits', 'ira-limits-2027', 'hsa-limits-2027', '401k-limits-by-year', 'super-catch-up-60-63'],
-  sources: ['notice_2025_67', 'ir_2025_111', 'irs_cola', 'rp_2026_24', 'usc_415', 'bls_cpi_data'],
+  sources: ['notice_2026_66', 'ir_2026_136', 'notice_2025_67', 'ir_2025_111', 'irs_cola', 'rp_2026_24', 'usc_415', 'bls_cpi_data'],
 });

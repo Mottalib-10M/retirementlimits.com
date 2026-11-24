@@ -83,5 +83,5 @@ ${h.mini('y2027', { t: 'Your 2027 IRA limit, or its status', p: ['by'], d: { k: 
   tool: 'y2027',
   toolArg: { k: 'ira', by: 1977 },
   related: ['ira-contribution-limits', 'roth-ira-income-limits', '401k-limits-2027', 'spousal-ira', '401k-limits-by-year'],
-  sources: ['notice_2025_67', 'ir_2025_111', 'irs_cola', 'pub590a', 'bls_cpi_data'],
+  sources: ['notice_2026_66', 'ir_2026_136', 'notice_2025_67', 'ir_2025_111', 'irs_cola', 'pub590a', 'bls_cpi_data'],
 });

@@ -72,5 +72,5 @@ ${h.mini('history', { t: 'The same year for another birth year', p: ['by'], d: {
   tool: 'history',
   toolArg: { y: String(Y[0]), by: 1970 },
   related: ['401k-contribution-limits', '401k-limits-2027', 'catch-up-contributions', 'ira-limits-2027', 'super-catch-up-60-63'],
-  sources: ['irs_cola', 'notice_2025_67', 'ir_2025_111'],
+  sources: ['irs_cola', 'notice_2025_67', 'notice_2026_66', 'ir_2025_111'],
 });

@@ -51,7 +51,7 @@ ${h.table(['Situation in 2026', 'Phase-out range used', 'Roth room at the MAGI s
 ], 'Spouse under 50 in every line.', ['l', 'r', 'r'])}
 <h2>Planning moves for a couple near the band</h2>
 <p>Because both incomes feed one MAGI, either spouse's pre-tax savings lower it. Pre-tax deferrals into a 401(k) or 403(b), HSA contributions through payroll and a deductible traditional IRA (if the deduction is allowed) all reduce the joint figure. Contributing early in the year is fine, but a couple whose income is uncertain may prefer to wait for the final pay stubs of December, since an excess has to be removed or recharacterized before the return is due. When both spouses are clearly above ${K.usd(J[1])}, a nondeductible traditional contribution followed by a conversion remains possible, and the ${h.a('traditional-ira-deduction-limits', 'traditional IRA deduction calculator')} shows how much of a traditional contribution each spouse could deduct.</p>
-<p>The joint range for 2027 is ${K.announced('2027') ? 'published' : 'not announced yet'}; the ${h.a('ira-limits-2027', '2027 IRA page')} adds it the day the IRS releases its notice. This page is general information; a tax professional can look at your full return.</p>
+<p>The joint range for 2027 is ${K.announced('2027') ? `${K.usd((K.L27 as { rothPhase: { joint: number[] } }).rothPhase.joint[0])} to ${K.usd((K.L27 as { rothPhase: { joint: number[] } }).rothPhase.joint[1])}, published in IRS Notice 2026-66 on November 12, 2026; the ${h.a('ira-limits-2027', '2027 IRA page')} works it out for you` : `not announced yet; the ${h.a('ira-limits-2027', '2027 IRA page')} adds it the day the IRS releases its notice`}. This page is general information; a tax professional can look at your full return.</p>
 `,
   faqs: [
     { q: 'Can my spouse and I each contribute the full Roth amount on a joint return?', a: `Yes, if your joint modified AGI is below ${K.usd(J[0])} in 2026. Each spouse then has a separate limit of ${K.usd(L.ira)}, or ${K.usd(full)} at 50 or over, so a couple can deposit up to twice that amount in two separate Roth IRAs, as long as their combined pay covers both contributions.` },
@@ -62,5 +62,5 @@ ${h.table(['Situation in 2026', 'Phase-out range used', 'Roth room at the MAGI s
   tool: 'roth',
   toolArg: { f: 'joint', magi: 247000, by: 1982 },
   related: ['roth-ira-income-limits', 'spousal-ira', 'traditional-ira-deduction-limits', 'ira-contribution-limits', 'ira-limits-2027'],
-  sources: ['notice_2025_67', 'pub590a', 'ir_2025_111'],
+  sources: ['notice_2025_67', 'notice_2026_66', 'pub590a', 'ir_2025_111'],
 });
