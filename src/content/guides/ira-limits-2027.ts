@@ -13,6 +13,8 @@ const band = (k: 'single' | 'joint') => {
 };
 const expected = String(K.L27.expected);
 const ira27 = num('ira');
+// Title wording: « $7,500 against $7,500 » read badly when nothing moved.
+const same = ira27 === L.ira && num('iraCatchUp') === L.iraCatchUp;
 const S = L.rothPhase.single, J = L.rothPhase.joint;
 const rows = H.years.map((y, i) => ({ y, ira: H.ira[i], cu: H.iraCatchUp[i] }));
 // A saver born in 1977 turns 50 in 2027: first year of the IRA catch-up.
@@ -27,9 +29,9 @@ export default defineGuide({
   slug: 'ira-limits-2027',
   nav: 'IRA limits 2027',
   card: ok ? 'The 2027 IRA limit, catch-up and Roth bands, against 2026' : 'Not announced yet: how the IRA limit is indexed and what to do before April 15',
-  title: ok ? `IRA Limits 2027: ${K.usd(ira27)} Against ${K.usd(L.ira)} in 2026, Roth Bands` : `IRA Limits 2027: ${K.usd(E.ira.value)} Estimate, 2026 Room Until April`,
+  title: ok ? `IRA Limits 2027: ${K.usd(ira27)} and ${K.usd(num('iraCatchUp'))} Catch-Up, ${same ? 'Same as 2026' : `vs ${K.usd(L.ira)} in 2026`}` : `IRA Limits 2027: ${K.usd(E.ira.value)} Estimate, 2026 Room Until April`,
   description: ok
-    ? `IRA limits 2027 from the IRS notice: ${K.usd(ira27)} against ${K.usd(L.ira)} in 2026, with the 2027 catch-up and Roth income bands. Your own 2027 IRA figure by birth year.`
+    ? `IRA limits 2027 from the IRS notice: ${K.usd(ira27)} and ${K.usd(num('iraCatchUp'))} at 50, ${same ? 'the same as in 2026' : `against ${K.usd(L.ira)} in 2026`}, with the new Roth income bands. Your own 2027 IRA figure by birth year.`
     : `IRA limits 2027 are not published (IRS notice ${expected}). Our CPI estimate: ${K.usd(E.ira.value)} plus ${K.usd(E.iraCatchUp.value)} at 50. The 2026 room stays open to April 15, 2027.`,
   h1: ok ? 'IRA limits 2027: the new amounts and Roth bands' : 'IRA limits 2027: not published yet, and what you can still do for 2026',
   intro: ok

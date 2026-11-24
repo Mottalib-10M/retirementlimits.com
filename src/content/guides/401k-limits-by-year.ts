@@ -12,6 +12,12 @@ const step = (arr: number[], i: number) => (i === 0 ? 'base year' : arr[i] === a
 const at50 = (i: number) => H.deferral[i] + H.catchUp50[i];
 const y27 = K.announced('2027') ? K.usd((K.L27 as Record<string, unknown>).deferral as number) : 'not announced yet';
 const cu6063 = (y: number) => (y >= 2025 ? K.usd(y === 2026 ? L.catchUp6063 : K.P.previous.catchUp6063) : 'did not exist');
+// 2027 column from the 2027 block (IRS Notice 2026-66; wage base from the SSA), shown once announced.
+const ok27 = K.announced('2027');
+const N = K.L27 as Record<string, unknown>;
+const c27 = (k: string) => (ok27 ? [K.usd(N[k] as number)] : []);
+const s27 = (arr: number[], k: string) => (ok27 ? [(N[k] as number) === arr[n] ? 'no change' : `+${K.usd((N[k] as number) - arr[n])}`] : []);
+const Y27 = ok27 ? ['2027'] : [];
 
 export default defineGuide({
   id: '401k-limits-by-year',
@@ -24,30 +30,30 @@ export default defineGuide({
   description: `401(k) limits by year, ${first} to 2026: deferral from ${K.usd(H.deferral[0])} to ${K.usd(L.deferral)}, catch-up, 415(c), IRA, SIMPLE, HCE and wage base, with each yearly change shown.`,
   h1: '401(k) limits by year: 2023 to 2026',
   intro: `The IRS resets the 401(k) and other retirement plan limits every November for the next year. This table keeps four years side by side, read from the IRS cost of living page, so you can check any figure you see quoted.`,
-  resume: `The 401(k) employee deferral limit was ${K.usd(H.deferral[0])} in ${first}, ${K.usd(H.deferral[1])} in ${Y[1]}, ${K.usd(H.deferral[2])} in ${Y[2]} and ${K.usd(H.deferral[n])} in ${last}: up ${K.usd(up(H.deferral))}, or ${K.pct(rise(H.deferral), 1)}, over the period. The age 50 catch-up stayed at ${K.usd(H.catchUp50[0])} for three years before moving to ${K.usd(H.catchUp50[n])} in ${last}, and the total additions limit of section 415(c) went from ${K.usd(H.total415c[0])} to ${K.usd(H.total415c[n])}. A saver aged 55 could therefore defer ${K.usd(at50(0))} in ${first} and ${K.usd(at50(n))} in ${last}. The amounts move in fixed steps, $500 for deferrals and catch-ups, which is why some years show no change at all. The IRA limit went from ${K.usd(H.ira[0])} to ${K.usd(H.ira[n])} and its catch-up moved for the first time, to ${K.usd(H.iraCatchUp[n])}, while the compensation cap climbed from ${K.usd(H.compensationCap[0])} to ${K.usd(H.compensationCap[n])}. The 2027 figures are ${y27}; the IRS publishes them ${String(K.L27.expected)}.`,
+  resume: `The 401(k) employee deferral limit was ${K.usd(H.deferral[0])} in ${first}, ${K.usd(H.deferral[1])} in ${Y[1]}, ${K.usd(H.deferral[2])} in ${Y[2]} and ${K.usd(H.deferral[n])} in ${last}: up ${K.usd(up(H.deferral))}, or ${K.pct(rise(H.deferral), 1)}, over the period. The age 50 catch-up stayed at ${K.usd(H.catchUp50[0])} for three years before moving to ${K.usd(H.catchUp50[n])} in ${last}, and the total additions limit of section 415(c) went from ${K.usd(H.total415c[0])} to ${K.usd(H.total415c[n])}. A saver aged 55 could therefore defer ${K.usd(at50(0))} in ${first} and ${K.usd(at50(n))} in ${last}. The amounts move in fixed steps, $500 for deferrals and catch-ups, which is why some years show no change at all. The IRA limit went from ${K.usd(H.ira[0])} to ${K.usd(H.ira[n])} and its catch-up moved for the first time, to ${K.usd(H.iraCatchUp[n])}, while the compensation cap climbed from ${K.usd(H.compensationCap[0])} to ${K.usd(H.compensationCap[n])}. ${ok27 ? `For 2027 the IRS set the deferral limit at ${y27} on November 12, 2026 (Notice 2026-66), and the Social Security wage base rises to ${K.usd(N.wageBase as number)}.` : `The 2027 figures are ${y27}; the IRS publishes them ${String(K.L27.expected)}.`}`,
   body: (h) => `
 <h2>The 401(k) limits table, ${first} to ${last}</h2>
-${h.table(['Limit', ...Y.map(String)], [
-  ['401(k), 403(b), 457(b) deferral', ...H.deferral.map(K.usd)],
-  ['Catch-up at 50', ...H.catchUp50.map(K.usd)],
-  ['Catch-up at 60 to 63', ...Y.map(cu6063)],
-  ['Total additions, 415(c)', ...H.total415c.map(K.usd)],
-  ['Compensation cap, 401(a)(17)', ...H.compensationCap.map(K.usd)],
-  ['IRA', ...H.ira.map(K.usd)],
-  ['IRA catch-up at 50', ...H.iraCatchUp.map(K.usd)],
-  ['SIMPLE deferral', ...H.simple.map(K.usd)],
-  ['Highly compensated employee', ...H.hce.map(K.usd)],
-  ['Social Security wage base', ...H.wageBase.map(K.usd)],
-], `${H._source} Wage base: Social Security Administration.`, ['l', 'r', 'r', 'r', 'r'])}
+${h.table(['Limit', ...Y.map(String), ...Y27], [
+  ['401(k), 403(b), 457(b) deferral', ...H.deferral.map(K.usd), ...c27('deferral')],
+  ['Catch-up at 50', ...H.catchUp50.map(K.usd), ...c27('catchUp50')],
+  ['Catch-up at 60 to 63', ...Y.map(cu6063), ...c27('catchUp6063')],
+  ['Total additions, 415(c)', ...H.total415c.map(K.usd), ...c27('total415c')],
+  ['Compensation cap, 401(a)(17)', ...H.compensationCap.map(K.usd), ...c27('compensationCap')],
+  ['IRA', ...H.ira.map(K.usd), ...c27('ira')],
+  ['IRA catch-up at 50', ...H.iraCatchUp.map(K.usd), ...c27('iraCatchUp')],
+  ['SIMPLE deferral', ...H.simple.map(K.usd), ...c27('simple')],
+  ['Highly compensated employee', ...H.hce.map(K.usd), ...c27('hce')],
+  ['Social Security wage base', ...H.wageBase.map(K.usd), ...c27('wageBase')],
+], `${H._source}${ok27 ? ' 2027: IRS Notice 2026-66 (November 12, 2026).' : ''} Wage base: Social Security Administration${ok27 ? `, ${K.usd(N.wageBase as number)} for 2027 announced on October 14, 2026` : ''}.`, ['l', 'r', 'r', 'r', 'r', 'r'])}
 <h2>How much each limit moved, year by year</h2>
-${h.table(['Limit', ...Y.slice(1).map(String)], [
-  ['Deferral', ...Y.slice(1).map((_, i) => step(H.deferral, i + 1))],
-  ['Catch-up at 50', ...Y.slice(1).map((_, i) => step(H.catchUp50, i + 1))],
-  ['415(c) total', ...Y.slice(1).map((_, i) => step(H.total415c, i + 1))],
-  ['IRA', ...Y.slice(1).map((_, i) => step(H.ira, i + 1))],
-  ['HCE threshold', ...Y.slice(1).map((_, i) => step(H.hce, i + 1))],
-  ['Wage base', ...Y.slice(1).map((_, i) => step(H.wageBase, i + 1))],
-], 'Change against the previous year.', ['l', 'r', 'r', 'r'])}
+${h.table(['Limit', ...Y.slice(1).map(String), ...Y27], [
+  ['Deferral', ...Y.slice(1).map((_, i) => step(H.deferral, i + 1)), ...s27(H.deferral, 'deferral')],
+  ['Catch-up at 50', ...Y.slice(1).map((_, i) => step(H.catchUp50, i + 1)), ...s27(H.catchUp50, 'catchUp50')],
+  ['415(c) total', ...Y.slice(1).map((_, i) => step(H.total415c, i + 1)), ...s27(H.total415c, 'total415c')],
+  ['IRA', ...Y.slice(1).map((_, i) => step(H.ira, i + 1)), ...s27(H.ira, 'ira')],
+  ['HCE threshold', ...Y.slice(1).map((_, i) => step(H.hce, i + 1)), ...s27(H.hce, 'hce')],
+  ['Wage base', ...Y.slice(1).map((_, i) => step(H.wageBase, i + 1)), ...s27(H.wageBase, 'wageBase')],
+], 'Change against the previous year.', ['l', 'r', 'r', 'r', 'r'])}
 <p>The pattern is uneven. The deferral limit rose by ${K.usd(H.deferral[1] - H.deferral[0])} in ${Y[1]}, only ${K.usd(H.deferral[2] - H.deferral[1])} in ${Y[2]}, then ${K.usd(H.deferral[n] - H.deferral[2])} in ${last}. The IRA limit jumped in ${Y[1]}, stood still in ${Y[2]} and rose again in ${last}. These are not policy decisions taken each year: the code fixes a formula, and the IRS applies it to the inflation measured up to the third quarter.</p>
 ${h.mini('history', { t: 'Your 401(k) limit in a past year', p: ['y'], d: { by: 1970 } })}
 <h2>Why the limits move in $500 steps</h2>
@@ -67,10 +73,10 @@ ${h.mini('history', { t: 'The same year for another birth year', p: ['by'], d: {
     { q: `Why did the 401(k) catch-up stay at ${K.usd(H.catchUp50[0])} from 2023 to 2025?`, a: `Because the indexed amount is rounded down to a multiple of $500. Inflation pushed the unrounded figure above ${K.usd(H.catchUp50[0])} in ${Y[1]} and ${Y[2]}, but not to the next step, so the published limit did not change until ${last}, when it reached ${K.usd(H.catchUp50[n])}. The same rounding rule explains the flat years of other limits.` },
     { q: 'How much has the 401(k) deferral limit risen since 2023?', a: `By ${K.usd(up(H.deferral))}, from ${K.usd(H.deferral[0])} in ${first} to ${K.usd(H.deferral[n])} in ${last}, about ${K.pct(rise(H.deferral), 1)} in three adjustments. The catch-up rose by ${K.usd(up(H.catchUp50))} over the same years and the 415(c) total by ${K.usd(up(H.total415c))}, so a saver over 50 gained ${K.usd(at50(n) - at50(0))} of room. Each step came from the inflation formula, not a new law.` },
     { q: 'Did the age 60 to 63 catch-up exist in 2024?', a: `No. SECURE 2.0 created it for plan years starting in 2025, at ${K.usd(K.P.previous.catchUp6063)}, and it stayed at ${K.usd(L.catchUp6063)} in ${last}. Before 2025 everyone aged 50 or over had the same catch-up, ${K.usd(H.catchUp50[0])} in ${first} and ${Y[1]}. A table showing a higher catch-up at 60 for those years is in error.` },
-    { q: 'Why does the Social Security wage base not follow the $500 steps?', a: `It is set by the Social Security Administration from the growth of the national average wage index, not by the IRS from consumer prices, and its rounding is different. It went from ${K.usd(H.wageBase[0])} in ${first} to ${K.usd(H.wageBase[n])} in ${last}. It matters for plans through self-employment tax and the Roth catch-up wage test.` },
+    { q: 'Why does the Social Security wage base not follow the $500 steps?', a: `It is set by the Social Security Administration from the growth of the national average wage index, not by the IRS from consumer prices, and its rounding is different. It went from ${K.usd(H.wageBase[0])} in ${first} to ${K.usd(H.wageBase[n])} in ${last}${ok27 ? ` and is ${K.usd(N.wageBase as number)} for 2027` : ''}. It matters for plans through self-employment tax and the Roth catch-up wage test.` },
   ],
   tool: 'history',
   toolArg: { y: String(Y[0]), by: 1970 },
   related: ['401k-contribution-limits', '401k-limits-2027', 'catch-up-contributions', 'ira-limits-2027', 'super-catch-up-60-63'],
-  sources: ['irs_cola', 'notice_2025_67', 'notice_2026_66', 'ir_2025_111'],
+  sources: ['irs_cola', 'notice_2025_67', 'notice_2026_66', 'ir_2025_111', 'ssa_cbb'],
 });

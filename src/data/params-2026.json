@@ -156,7 +156,9 @@
       },
       "qcd": 114000,
       "qcdSplit": 57000,
-      "healthFsaCarryover": 700
+      "healthFsaCarryover": 700,
+      "wageBase": 192300,
+      "wageBaseSource": "ssa_cbb"
     }
   },
   "history": {
@@ -590,6 +592,12 @@
       "url": "https://www.irs.gov/newsroom/401k-limit-increases-to-25500-for-2027-ira-limit-remains-7500",
       "label": {
         "en": "IRS news release IR-2026-136: 401(k) limit increases to $25,500 for 2027, IRA limit remains $7,500 (Nov. 12, 2026)"
+      }
+    },
+    "ssa_cbb": {
+      "url": "https://www.ssa.gov/oact/cola/cbb.html",
+      "label": {
+        "en": "Social Security Administration, contribution and benefit base: $192,300 for 2027 (announced Oct. 14, 2026)"
       }
     },
     "rp_2026_35": {
